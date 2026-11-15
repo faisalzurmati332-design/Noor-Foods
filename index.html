@@ -1,40 +1,203 @@
 
-
 <!DOCTYPE html>
 <html lang="ps" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Noor Foods - د کیفیت لرونکو مصالحو او ځانګړي خوند کور">
 <title>Noor Foods | نور فوډز</title>
+
 <style>
+:root{
+ --purple:#40205c;
+ --purple2:#542477;
+ --gold:#d9a52d;
+ --cream:#fffaf0;
+ --ink:#30251d;
+}
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#fffaf0;color:#30251d}
-header{background:#542477;color:white;padding:22px;text-align:center}
-header h1{margin:0;color:#f6ce65;font-size:30px}
-nav{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;padding:15px;background:#40205c}
-nav a,nav button{color:white;background:none;border:0;text-decoration:none;font-size:15px;cursor:pointer}
-.hero{text-align:center;padding:65px 20px;background:#f3e8d7}
-.hero h2{font-size:32px;color:#542477}
-.hero p{font-size:18px;line-height:1.8}
-.btn{background:#d9a52d;color:#281b0d;border:0;padding:12px 22px;border-radius:7px;cursor:pointer;font-weight:bold}
-section{padding:35px 18px;max-width:1100px;margin:auto}
-h2{text-align:center;color:#542477}
-.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
-.card{background:white;border:1px solid #eadcc8;border-radius:12px;padding:16px;text-align:center;box-shadow:0 3px 12px #00000010}
-.card img{width:100%;height:160px;object-fit:cover;border-radius:9px}
-.card h3{color:#542477}
-.price{font-weight:bold;color:#a36e00}
-input,textarea,select{width:100%;padding:12px;margin:7px 0;border:1px solid #ccc;border-radius:6px}
-footer{text-align:center;background:#40205c;color:white;padding:25px}
-.hidden{display:none}
-.admin{max-width:500px;margin:auto;background:white;padding:20px;border-radius:12px}
+html{scroll-behavior:smooth}
+body{
+ margin:0;
+ font-family:Arial,sans-serif;
+ background:var(--cream);
+ color:var(--ink);
+}
+header{
+ background:var(--purple2);
+ color:white;
+ padding:18px 16px;
+ text-align:center;
+}
+.logo{
+ display:block;
+ width:190px;
+ max-width:65%;
+ height:auto;
+ max-height:115px;
+ object-fit:contain;
+ margin:0 auto 10px;
+ border-radius:8px;
+}
+header h1{
+ margin:0;
+ color:#f6ce65;
+ font-size:28px;
+}
+header p{margin:8px 0 0;line-height:1.8}
+
+nav{
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ gap:16px;
+ flex-wrap:wrap;
+ padding:14px;
+ background:var(--purple);
+}
+nav a{
+ color:white;
+ text-decoration:none;
+ font-size:15px;
+}
+nav a:hover{
+ text-decoration:underline;
+ color:#f6ce65;
+}
+nav select{
+ width:auto;
+ margin:0;
+ padding:8px;
+ border-radius:6px;
+}
+.hero{
+ text-align:center;
+ padding:58px 18px;
+ background:#f3e8d7;
+}
+.hero h2{
+ font-size:clamp(25px,5vw,34px);
+ color:var(--purple2);
+ margin:0 0 12px;
+}
+.hero p{
+ font-size:18px;
+ line-height:1.9;
+ max-width:720px;
+ margin:0 auto 20px;
+}
+.btn{
+ display:inline-block;
+ background:var(--gold);
+ color:#281b0d;
+ border:0;
+ padding:12px 22px;
+ border-radius:7px;
+ cursor:pointer;
+ font-weight:bold;
+ text-decoration:none;
+}
+.btn:hover{filter:brightness(.96)}
+
+section{
+ padding:34px 18px;
+ max-width:1100px;
+ margin:auto;
+ scroll-margin-top:15px;
+}
+h2{
+ text-align:center;
+ color:var(--purple2);
+}
+.products{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+ gap:20px;
+}
+.card{
+ background:white;
+ border:1px solid #eadcc8;
+ border-radius:12px;
+ padding:16px;
+ text-align:center;
+ box-shadow:0 3px 12px #00000010;
+}
+.card img{
+ width:100%;
+ height:170px;
+ object-fit:cover;
+ border-radius:9px;
+}
+.card h3{color:var(--purple2)}
+.price{
+ font-weight:bold;
+ color:#a36e00;
+}
+input,textarea,select{
+ width:100%;
+ padding:12px;
+ margin:7px 0;
+ border:1px solid #ccc;
+ border-radius:6px;
+ font:inherit;
+}
+textarea{
+ min-height:100px;
+ resize:vertical;
+}
+form{
+ max-width:600px;
+ margin:18px auto;
+}
+footer{
+ text-align:center;
+ background:var(--purple);
+ color:white;
+ padding:25px 16px;
+}
+.footer-logo{
+ width:145px;
+ max-height:90px;
+ margin:0 auto 12px;
+}
+.hidden{display:none!important}
+.admin{
+ max-width:560px;
+ margin:15px auto;
+ background:white;
+ padding:20px;
+ border-radius:12px;
+ box-shadow:0 3px 12px #00000010;
+}
 .admin button{margin:5px}
+.admin-item{
+ border-bottom:1px solid #eee;
+ padding:8px 0;
+ overflow-wrap:anywhere;
+}
+.note{
+ font-size:13px;
+ color:#755f4c;
+ line-height:1.7;
+ text-align:center;
+}
+@media(max-width:520px){
+ nav{gap:12px}
+ nav a{font-size:14px}
+ .hero{padding:42px 15px}
+ .logo{width:155px}
+}
 </style>
 </head>
+
 <body>
 
 <header>
-<h1>🌿 NOOR FOODS</h1>
+<img src="noor-logo.png"
+ alt="د نور فوډز اصلي لوگو"
+ class="logo">
+
+<h1>NOOR FOODS | نور فوډز</h1>
 <p>د کیفیت او خوند نړۍ | د نور فوډز رسمي ویب‌سایټ</p>
 </header>
 
@@ -44,17 +207,27 @@ footer{text-align:center;background:#40205c;color:white;padding:25px}
 <a href="#about">زموږ په اړه</a>
 <a href="#contact">اړیکه</a>
 <a href="#admin">Admin</a>
-<select id="language" onchange="changeLanguage()" style="width:auto;margin:0">
+
+<select id="language" aria-label="ژبه"
+ onchange="changeLanguage()">
 <option value="ps">پښتو</option>
 <option value="fa">دری</option>
 <option value="en">English</option>
 </select>
 </nav>
 
+<main>
+
 <div class="hero" id="home">
 <h2 id="welcome">نور فوډز ته ښه راغلاست!</h2>
-<p id="slogan">ستاسو د خوړو لپاره غوره مصالحې او ځانګړی خوند.</p>
-<a href="#products"><button class="btn" id="shop">زموږ محصولات وګورئ</button></a>
+
+<p id="slogan">
+ستاسو د خوړو لپاره غوره مصالحې او ځانګړی خوند.
+</p>
+
+<a href="#products" class="btn" id="shop">
+زموږ محصولات وګورئ
+</a>
 </div>
 
 <section id="products">
@@ -64,7 +237,9 @@ footer{text-align:center;background:#40205c;color:white;padding:25px}
 
 <section id="about">
 <h2 id="aboutTitle">زموږ په اړه</h2>
-<p id="aboutText" style="text-align:center;line-height:2">
+
+<p id="aboutText"
+ style="text-align:center;line-height:2">
 نور فوډز د مصالحو او د خوړو د خوندونو یوه نښه ده.
 زموږ موخه تاسو ته د کیفیت لرونکي محصولات وړاندې کول دي.
 </p>
@@ -72,111 +247,402 @@ footer{text-align:center;background:#40205c;color:white;padding:25px}
 
 <section id="contact">
 <h2 id="contactTitle">له موږ سره اړیکه</h2>
-<p id="contactText" style="text-align:center">د معلوماتو او فرمایش لپاره موږ سره اړیکه ونیسئ.</p>
+
+<p id="contactText" style="text-align:center">
+د معلوماتو او فرمایش لپاره موږ سره اړیکه ونیسئ.
+</p>
+
 <form onsubmit="sendMessage(event)">
-<input id="customerName" placeholder="ستاسو نوم" required>
-<input id="customerPhone" placeholder="د اړیکې شمېره" required>
-<textarea id="customerMessage" placeholder="ستاسو پیغام" required></textarea>
-<button class="btn" type="submit" id="sendBtn">پیغام واستوئ</button>
+<input id="customerName"
+ placeholder="ستاسو نوم"
+ autocomplete="name"
+ required>
+
+<input id="customerPhone"
+ placeholder="د اړیکې شمېره"
+ inputmode="tel"
+ required>
+
+<textarea id="customerMessage"
+ placeholder="ستاسو پیغام"
+ required></textarea>
+
+<button class="btn" type="submit" id="sendBtn">
+پیغام واستوئ
+</button>
 </form>
 </section>
 
 <section id="admin">
 <h2>Admin Panel</h2>
+
 <div class="admin" id="loginBox">
 <p>د مدیر حساب ته ننوتل</p>
-<input id="username" placeholder="Username">
-<input id="password" type="password" placeholder="Password">
+
+<input id="username"
+ placeholder="Username"
+ autocomplete="username">
+
+<input id="password"
+ type="password"
+ placeholder="Password"
+ autocomplete="current-password">
+
 <button class="btn" onclick="login()">Login</button>
-<p id="loginError"></p>
+
+<p id="loginError" role="alert"></p>
 </div>
 
 <div class="admin hidden" id="manageBox">
 <h3>Manage Products</h3>
+
 <input id="pname" placeholder="د محصول نوم">
-<input id="pprice" type="number" placeholder="قیمت په افغانیو">
-<input id="pimage" placeholder="د عکس لینک (اختیاري)">
-<input id="pdesc" placeholder="د محصول تشریح">
-<button class="btn" onclick="addProduct()">محصول اضافه کړه</button>
+
+<input id="pprice"
+ type="number"
+ min="0"
+ step="1"
+ placeholder="قیمت په افغانیو">
+
+<input id="pimage"
+ placeholder="د عکس لینک (اختیاري)">
+
+<input id="pdesc"
+ placeholder="د محصول تشریح">
+
+<button class="btn" onclick="addProduct()">
+محصول اضافه کړه
+</button>
+
 <div id="adminProducts"></div>
-<button class="btn" onclick="logout()">Logout</button>
+
+<button class="btn" onclick="logout()">
+Logout
+</button>
 </div>
+
+<p class="note">
+یادونه: دا Admin Panel یوازې د ازموینې لپاره دی.
+معلومات د همدې براوزر په وسیله کې ساتل کېږي.
+د خوندي او عامه پلورنځي لپاره سرور، ډیټابېس
+او خوندي ننوتل اړین دي.
+</p>
+
 </section>
+</main>
 
 <footer>
-<h3>🌿 NOOR FOODS</h3>
+<img src="noor-logo.png"
+ alt="Noor Foods Logo"
+ class="logo footer-logo">
+
+<h3>NOOR FOODS | نور فوډز</h3>
 <p>© 2026 Noor Foods. All rights reserved.</p>
 </footer>
 
 <script>
-const defaults=[
-{id:1,name:"Garam Masala",price:0,image:"https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=500",desc:"د ګرمو مصالحو مخلوط"},
-{id:2,name:"Salad Masala",price:0,image:"https://images.unsplash.com/photo-1532336414038-cf19250c5757?w=500",desc:"د سلاد لپاره مصالحې"},
-{id:3,name:"Biryani Masala",price:0,image:"https://images.unsplash.com/photo-1596797038530-2c107229654b?w=500",desc:"د بریاني ځانګړې مصالحې"}
+
+const defaults = [
+{
+ id:1,
+ name:"Garam Masala",
+ price:0,
+ image:"https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=500",
+ desc:"د ګرمو مصالحو مخلوط"
+},
+{
+ id:2,
+ name:"Salad Masala",
+ price:0,
+ image:"https://images.unsplash.com/photo-1532336414038-cf19250c5757?w=500",
+ desc:"د سلاد لپاره مصالحې"
+},
+{
+ id:3,
+ name:"Biryani Masala",
+ price:0,
+ image:"https://images.unsplash.com/photo-1596797038530-2c107229654b?w=500",
+ desc:"د بریاني ځانګړې مصالحې"
+}
 ];
 
-let products=JSON.parse(localStorage.getItem("noorProducts")||"null")||defaults;
-function save(){localStorage.setItem("noorProducts",JSON.stringify(products));render()}
-function render(){
- document.getElementById("productList").innerHTML=products.map(p=>`
- <div class="card">
- <img src="${p.image||'https://placehold.co/400x250?text=Noor+Foods'}" alt="${p.name}">
- <h3>${p.name}</h3><p>${p.desc||""}</p>
- <p class="price">${p.price>0?p.price+" افغانۍ":"د قیمت لپاره اړیکه ونیسئ"}</p>
- </div>`).join("");
- document.getElementById("adminProducts").innerHTML=products.map(p=>`
- <p>${p.name} — ${p.price} AFN
- <button onclick="editProduct(${p.id})">Edit</button>
- <button onclick="deleteProduct(${p.id})">Delete</button></p>
- `).join("");
+let products;
+
+try {
+ products =
+ JSON.parse(localStorage.getItem("noorProducts") || "null")
+ || defaults;
+} catch(e) {
+ products = defaults;
 }
-function login(){
- if(document.getElementById("username").value==="admin" &&
- document.getElementById("password").value==="Noor@2026"){
- document.getElementById("loginBox").classList.add("hidden");
- document.getElementById("manageBox").classList.remove("hidden");
- }else{document.getElementById("loginError").textContent="Username یا Password غلط دی"}
+
+function escapeHTML(value) {
+ return String(value ?? "").replace(/[&<>"']/g, ch => ({
+  "&":"&amp;",
+  "<":"&lt;",
+  ">":"&gt;",
+  '"':"&quot;",
+  "'":"&#39;"
+ }[ch]));
 }
-function logout(){
- document.getElementById("manageBox").classList.add("hidden");
- document.getElementById("loginBox").classList.remove("hidden");
-}
-function addProduct(){
- let name=document.getElementById("pname").value.trim();
- let price=Number(document.getElementById("pprice").value);
- if(!name){alert("د محصول نوم ولیکئ");return}
- products.push({id:Date.now(),name,price,image:document.getElementById("pimage").value,desc:document.getElementById("pdesc").value});
- save();
- ["pname","pprice","pimage","pdesc"].forEach(id=>document.getElementById(id).value="");
-}
-function deleteProduct(id){
- if(confirm("دا محصول حذف شي؟")){products=products.filter(p=>p.id!==id);save()}
-}
-function editProduct(id){
- let p=products.find(x=>x.id===id);
- let name=prompt("د محصول نوی نوم:",p.name);
- if(name!==null && name.trim()){
- p.name=name.trim();
- let price=prompt("نوی قیمت په افغانیو:",p.price);
- if(price!==null && price.trim()!=="")p.price=Number(price);
- save();
+
+function save() {
+ try {
+  localStorage.setItem(
+   "noorProducts",
+   JSON.stringify(products)
+  );
+  render();
+ } catch(e) {
+  alert("محصولات خوندي نه شول. د براوزر ذخیره وګورئ.");
  }
 }
-function sendMessage(e){
+
+function render() {
+
+ document.getElementById("productList").innerHTML =
+ products.map(p => `
+ <article class="card">
+
+ <img
+ src="${escapeHTML(p.image || 'https://placehold.co/400x250?text=Noor+Foods')}"
+ alt="${escapeHTML(p.name)}"
+ loading="lazy">
+
+ <h3>${escapeHTML(p.name)}</h3>
+
+ <p>${escapeHTML(p.desc || "")}</p>
+
+ <p class="price">
+ ${
+  Number(p.price)>0
+  ? escapeHTML(Number(p.price))+" افغانۍ"
+  : "د قیمت لپاره اړیکه ونیسئ"
+ }
+ </p>
+
+ </article>
+ `).join("");
+
+ document.getElementById("adminProducts").innerHTML =
+ products.map(p => `
+ <div class="admin-item">
+
+ <strong>${escapeHTML(p.name)}</strong>
+ — ${escapeHTML(p.price)} AFN
+
+ <button type="button"
+ onclick="editProduct(${Number(p.id)})">
+ Edit
+ </button>
+
+ <button type="button"
+ onclick="deleteProduct(${Number(p.id)})">
+ Delete
+ </button>
+
+ </div>
+ `).join("");
+}
+
+function login() {
+
+ if(
+  document.getElementById("username").value === "admin"
+  &&
+  document.getElementById("password").value === "Noor@2026"
+ ) {
+
+  document.getElementById("loginBox")
+  .classList.add("hidden");
+
+  document.getElementById("manageBox")
+  .classList.remove("hidden");
+
+  document.getElementById("loginError").textContent = "";
+
+ } else {
+
+  document.getElementById("loginError").textContent =
+  "Username یا Password غلط دی";
+
+ }
+}
+
+function logout() {
+
+ document.getElementById("manageBox")
+ .classList.add("hidden");
+
+ document.getElementById("loginBox")
+ .classList.remove("hidden");
+
+ document.getElementById("password").value = "";
+}
+
+function addProduct() {
+
+ const name =
+ document.getElementById("pname").value.trim();
+
+ const priceText =
+ document.getElementById("pprice").value;
+
+ const price =
+ priceText === "" ? 0 : Number(priceText);
+
+ if(!name) {
+  alert("د محصول نوم ولیکئ");
+  return;
+ }
+
+ if(!Number.isFinite(price) || price < 0) {
+  alert("سم قیمت ولیکئ");
+  return;
+ }
+
+ products.push({
+  id:Date.now(),
+  name:name,
+  price:price,
+  image:document.getElementById("pimage").value.trim(),
+  desc:document.getElementById("pdesc").value.trim()
+ });
+
+ save();
+
+ ["pname","pprice","pimage","pdesc"].forEach(id => {
+  document.getElementById(id).value = "";
+ });
+}
+
+function deleteProduct(id) {
+
+ if(confirm("دا محصول حذف شي؟")) {
+
+  products = products.filter(
+   p => Number(p.id) !== Number(id)
+  );
+
+  save();
+ }
+}
+
+function editProduct(id) {
+
+ const p = products.find(
+  x => Number(x.id) === Number(id)
+ );
+
+ if(!p) return;
+
+ const name = prompt("د محصول نوی نوم:",p.name);
+
+ if(name === null || !name.trim()) return;
+
+ const price = prompt("نوی قیمت په افغانیو:",p.price);
+
+ if(price === null) return;
+
+ if(
+  price.trim() !== ""
+  &&
+  (!Number.isFinite(Number(price)) || Number(price)<0)
+ ) {
+  alert("سم قیمت ولیکئ");
+  return;
+ }
+
+ p.name = name.trim();
+
+ if(price.trim() !== "") {
+  p.price = Number(price);
+ }
+
+ save();
+}
+
+function sendMessage(e) {
+
  e.preventDefault();
- alert("ستاسو پیغام ثبت نه شو. د اړیکې لپاره باید د WhatsApp شمېره او د پیغام سیستم وصل شي.");
+
+ alert(
+  "د پیغام لېږلو لپاره باید د Noor Foods د اړیکې شمېره او د پیغام خدمت وصل شي. اوس دا فورمه پیغام نه لېږي."
+ );
 }
-const translations={
- ps:["نور فوډز ته ښه راغلاست!","ستاسو د خوړو لپاره غوره مصالحې او ځانګړی خوند.","زموږ محصولات وګورئ","زموږ محصولات","زموږ په اړه","نور فوډز د مصالحو او د خوړو د خوندونو یوه نښه ده. زموږ موخه تاسو ته د کیفیت لرونکي محصولات وړاندې کول دي.","له موږ سره اړیکه","د معلوماتو او فرمایش لپاره موږ سره اړیکه ونیسئ.","پیغام واستوئ"],
- fa:["به نور فودز خوش آمدید!","ادویه‌های باکیفیت و طعم ویژه برای غذای شما.","محصولات ما را ببینید","محصولات ما","درباره ما","نور فودز نامی برای ادویه‌ها و طعم غذا است. هدف ما ارائه محصولات باکیفیت به شماست.","تماس با ما","برای معلومات و سفارش با ما تماس بگیرید.","ارسال پیام"],
- en:["Welcome to Noor Foods!","Quality spices and special taste for your food.","View Our Products","Our Products","About Us","Noor Foods brings spices and flavors to your kitchen. Our goal is to offer quality products.","Contact Us","Contact us for information and orders.","Send Message"]
+
+const translations = {
+
+ ps:[
+ "نور فوډز ته ښه راغلاست!",
+ "ستاسو د خوړو لپاره غوره مصالحې او ځانګړی خوند.",
+ "زموږ محصولات وګورئ",
+ "زموږ محصولات",
+ "زموږ په اړه",
+ "نور فوډز د مصالحو او د خوړو د خوندونو یوه نښه ده. زموږ موخه تاسو ته د کیفیت لرونکي محصولات وړاندې کول دي.",
+ "له موږ سره اړیکه",
+ "د معلوماتو او فرمایش لپاره موږ سره اړیکه ونیسئ.",
+ "پیغام واستوئ"
+ ],
+
+ fa:[
+ "به نور فودز خوش آمدید!",
+ "ادویه‌های باکیفیت و طعم ویژه برای غذای شما.",
+ "محصولات ما را ببینید",
+ "محصولات ما",
+ "درباره ما",
+ "نور فودز نامی برای ادویه‌ها و طعم غذا است. هدف ما ارائه محصولات باکیفیت به شماست.",
+ "تماس با ما",
+ "برای معلومات و سفارش با ما تماس بگیرید.",
+ "ارسال پیام"
+ ],
+
+ en:[
+ "Welcome to Noor Foods!",
+ "Quality spices and special taste for your food.",
+ "View Our Products",
+ "Our Products",
+ "About Us",
+ "Noor Foods brings spices and flavors to your kitchen. Our goal is to offer quality products.",
+ "Contact Us",
+ "Contact us for information and orders.",
+ "Send Message"
+ ]
+
 };
-function changeLanguage(){
- let t=translations[document.getElementById("language").value];
- ["welcome","slogan","shop","productTitle","aboutTitle","aboutText","contactTitle","contactText","sendBtn"].forEach((id,i)=>document.getElementById(id).textContent=t[i]);
- document.documentElement.dir=document.getElementById("language").value==="en"?"ltr":"rtl";
+
+function changeLanguage() {
+
+ const lang =
+ document.getElementById("language").value;
+
+ const t = translations[lang];
+
+ [
+  "welcome",
+  "slogan",
+  "shop",
+  "productTitle",
+  "aboutTitle",
+  "aboutText",
+  "contactTitle",
+  "contactText",
+  "sendBtn"
+ ].forEach((id,i) => {
+
+  document.getElementById(id).textContent = t[i];
+
+ });
+
+ document.documentElement.lang =
+ lang === "fa" ? "fa" : lang;
+
+ document.documentElement.dir =
+ lang === "en" ? "ltr" : "rtl";
 }
+
 render();
+
 </script>
 </body>
 </html>
