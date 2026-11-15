@@ -3,42 +3,67 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Noor Foods | نور فوډز</title>
 
 <style>
-*{box-sizing:border-box}
+*{
+ box-sizing:border-box;
+ margin:0;
+ padding:0;
+}
 
 :root{
  --purple:#542477;
- --dark-purple:#35164F;
+ --deep:#21052F;
+ --dark:#35164F;
+ --violet:#8B3CB0;
  --gold:#D9A52D;
- --light-gold:#F1D58A;
- --cream:#FFFAF0;
- --white:#FFFFFF;
- --text:#292929;
+ --lightgold:#F5D77C;
+ --cream:#FFF0D0;
 }
+
+html{scroll-behavior:smooth}
 
 body{
- margin:0;
  font-family:Arial,sans-serif;
- background:var(--white);
- color:var(--text);
+ background:linear-gradient(135deg,#21052F,#542477,#35164F);
+ color:white;
 }
 
-a{text-decoration:none;color:inherit}
+a{
+ text-decoration:none;
+ color:inherit;
+}
+
+.topbar{
+ background:linear-gradient(90deg,#21052F,#542477,#21052F);
+ padding:11px 5%;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ gap:12px;
+ flex-wrap:wrap;
+ border-bottom:1px solid #D9A52D;
+ font-size:14px;
+}
+
+.topbar span{color:#F5D77C}
 
 header{
- background:var(--white);
- padding:14px 6%;
+ background:linear-gradient(110deg,#F5D7A0,#FFF0D0,#E9B95F);
+ color:#35164F;
+ padding:12px 4%;
  display:flex;
- align-items:center;
  justify-content:space-between;
- gap:15px;
+ align-items:center;
+ gap:18px;
  flex-wrap:wrap;
- border-bottom:2px solid var(--light-gold);
  position:sticky;
  top:0;
- z-index:10;
+ z-index:100;
+ box-shadow:0 5px 20px #0005;
+ border-bottom:3px solid #D9A52D;
 }
 
 .logo-area{
@@ -54,244 +79,417 @@ header{
 }
 
 .brand{
- color:var(--purple);
- font-size:25px;
+ font-size:23px;
  font-weight:bold;
+ color:#542477;
+}
+
+.brand small{
+ display:block;
+ font-size:13px;
+ text-align:center;
+ color:#8B3CB0;
+ margin-top:4px;
 }
 
 nav{
  display:flex;
- gap:20px;
+ align-items:center;
+ gap:18px;
  flex-wrap:wrap;
 }
 
 nav a{
+ font-size:15px;
  font-weight:bold;
- font-size:14px;
- transition:.2s;
+ transition:.3s;
 }
 
-nav a:hover{color:var(--gold)}
+nav a:hover{
+ color:#A66A00;
+}
+
+.home-link{
+ background:linear-gradient(120deg,#21052F,#542477,#8B3CB0);
+ color:white;
+ padding:13px 22px;
+ border-radius:30px;
+}
 
 .search{
  display:flex;
- border:1px solid var(--light-gold);
+ background:white;
  border-radius:30px;
  overflow:hidden;
+ border:2px solid #E5B94F;
 }
 
 .search input{
+ width:145px;
+ padding:12px;
  border:0;
  outline:0;
- padding:11px;
- width:160px;
+ background:transparent;
 }
 
 .search button{
  border:0;
- background:var(--purple);
+ padding:10px 17px;
+ background:linear-gradient(120deg,#21052F,#542477);
  color:white;
- padding:10px 15px;
  cursor:pointer;
 }
 
-.search button:hover{background:var(--dark-purple)}
-
 .hero{
- min-height:440px;
- display:flex;
+ min-height:430px;
+ display:grid;
+ grid-template-columns:1.1fr 1fr;
  align-items:center;
- padding:60px 8%;
+ gap:25px;
+ padding:45px 5%;
  background:
- linear-gradient(90deg,rgba(53,22,79,.85),rgba(84,36,119,.25)),
- url('https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=1600&q=85')
- center/cover;
- color:white;
+ radial-gradient(circle at 20% 30%,#8B3CB055,transparent 35%),
+ linear-gradient(120deg,#21052F,#542477,#21052F);
+ position:relative;
+ overflow:hidden;
+ border-bottom:5px solid #D9A52D;
 }
 
-.hero-content{max-width:570px}
+.hero::after{
+ content:"";
+ position:absolute;
+ width:350px;
+ height:350px;
+ border:2px solid #D9A52D66;
+ border-radius:50%;
+ left:-120px;
+ bottom:-180px;
+}
+
+.hero-content{
+ position:relative;
+ z-index:2;
+}
 
 .hero h1{
- font-size:48px;
- margin:0 0 15px;
+ color:#F5D77C;
+ font-size:45px;
+ line-height:1.5;
+ margin-bottom:15px;
 }
 
 .hero p{
  font-size:19px;
- line-height:1.9;
+ line-height:2;
+ color:#fff;
+}
+
+.hero-image{
+ width:100%;
+ height:330px;
+ object-fit:cover;
+ border-radius:18px;
+ border:4px solid #D9A52D;
+ box-shadow:0 12px 40px #0008;
 }
 
 .main-btn{
  display:inline-block;
- background:var(--gold);
- color:var(--dark-purple);
- padding:13px 27px;
- border-radius:5px;
+ background:linear-gradient(110deg,#D9A52D,#FFF0B5,#D9A52D);
+ color:#35164F;
+ padding:15px 28px;
+ border-radius:35px;
  font-weight:bold;
- margin-top:12px;
- transition:.2s;
+ margin-top:20px;
+ box-shadow:0 5px 20px #0004;
+ transition:.3s;
 }
 
 .main-btn:hover{
- background:var(--light-gold);
+ transform:translateY(-4px);
+ box-shadow:0 8px 25px #D9A52D55;
 }
 
-.section{padding:55px 6%}
+.section{
+ padding:55px 5%;
+}
 
 .section-title{
  text-align:center;
- color:var(--purple);
- font-size:30px;
+ font-size:31px;
+ color:#F5D77C;
  margin-bottom:12px;
 }
 
 .section-desc{
  text-align:center;
- color:#777;
+ color:#E8D8F0;
  margin-bottom:35px;
+ line-height:1.8;
+}
+
+.title-line{
+ width:100px;
+ height:4px;
+ margin:12px auto 30px;
+ border-radius:10px;
+ background:linear-gradient(90deg,#D9A52D,#FFF0B5,#D9A52D);
 }
 
 .categories{
  display:grid;
- grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
- gap:18px;
+ grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+ gap:20px;
 }
 
 .category{
- background:var(--cream);
- padding:24px 12px;
+ background:linear-gradient(145deg,#FFF0D0,#E9B95F);
+ color:#35164F;
+ border-radius:18px;
+ overflow:hidden;
  text-align:center;
- border-radius:8px;
- font-weight:bold;
  cursor:pointer;
- border:1px solid var(--light-gold);
- transition:.2s;
+ border:2px solid #D9A52D;
+ box-shadow:0 7px 20px #0004;
+ transition:.3s;
 }
 
 .category:hover{
- background:var(--purple);
- color:white;
- border-color:var(--purple);
+ transform:translateY(-7px);
+ box-shadow:0 10px 25px #D9A52D55;
+}
+
+.category img{
+ width:100%;
+ height:115px;
+ object-fit:cover;
+}
+
+.category h3{
+ padding:14px 5px;
 }
 
 .products{
  display:grid;
- grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
- gap:23px;
+ grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+ gap:20px;
 }
 
 .product{
- border:1px solid #eee;
- border-radius:9px;
+ background:linear-gradient(145deg,#FFF7E7,#E9B95F);
+ color:#35164F;
+ border:2px solid #D9A52D;
+ border-radius:15px;
  overflow:hidden;
- background:#fff;
- transition:.25s;
+ box-shadow:0 7px 20px #0005;
+ transition:.3s;
 }
 
 .product:hover{
- transform:translateY(-5px);
- box-shadow:0 8px 22px #00000012;
+ transform:translateY(-7px);
+ box-shadow:0 12px 28px #0007;
 }
 
 .product img{
  width:100%;
- height:190px;
+ height:165px;
  object-fit:cover;
 }
 
-.product-info{padding:17px}
+.product-info{
+ padding:13px;
+ text-align:center;
+}
 
 .product-info h3{
- color:var(--purple);
- margin:0 0 10px;
+ font-size:19px;
+ margin-bottom:8px;
 }
 
 .product-info p{
- color:#777;
- line-height:1.7;
- font-size:14px;
+ color:#654477;
+ font-size:13px;
+ line-height:1.8;
 }
 
 .order-btn{
  display:block;
- text-align:center;
- padding:11px;
- background:var(--purple);
- color:white;
- border-radius:5px;
  margin-top:12px;
- transition:.2s;
+ padding:11px 7px;
+ border-radius:25px;
+ background:linear-gradient(110deg,#D9A52D,#FFF0B5,#D9A52D);
+ color:#35164F;
+ font-weight:bold;
+ transition:.3s;
 }
 
-.order-btn:hover{background:var(--gold);color:var(--dark-purple)}
+.order-btn:hover{
+ background:linear-gradient(110deg,#542477,#8B3CB0);
+ color:white;
+}
+
+.no-result{
+ display:none;
+ text-align:center;
+ padding:30px;
+ color:#F5D77C;
+ font-size:20px;
+}
 
 .about{
- background:var(--cream);
+ background:
+ radial-gradient(circle at 80% 20%,#8B3CB044,transparent 40%),
+ linear-gradient(120deg,#21052F,#542477);
  display:grid;
  grid-template-columns:1fr 1fr;
  gap:35px;
  align-items:center;
+ border-top:2px solid #D9A52D;
+ border-bottom:2px solid #D9A52D;
+}
+
+.about p{
+ line-height:2.2;
+ color:#F5EAFB;
+ font-size:16px;
+ margin-top:20px;
 }
 
 .about img{
  width:100%;
- border-radius:10px;
+ height:300px;
+ object-fit:cover;
+ border-radius:18px;
+ border:3px solid #D9A52D;
+ box-shadow:0 10px 30px #0006;
 }
 
-.about p{line-height:2;color:#555}
+.features{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+ gap:18px;
+}
+
+.feature{
+ background:linear-gradient(145deg,#542477,#35164F);
+ border:1px solid #D9A52D;
+ border-radius:15px;
+ padding:25px 15px;
+ text-align:center;
+}
+
+.feature h3{
+ color:#F5D77C;
+ margin-bottom:10px;
+}
+
+.feature p{
+ color:#E8D8F0;
+ line-height:1.8;
+ font-size:14px;
+}
 
 .contact{
- background:var(--purple);
- color:white;
  text-align:center;
+ background:linear-gradient(120deg,#8B3CB0,#542477,#21052F);
+ border-top:3px solid #D9A52D;
 }
 
-.contact h2{font-size:30px}
+.contact h2{
+ color:#F5D77C;
+ font-size:30px;
+ margin-bottom:15px;
+}
 
-.contact p{line-height:2}
+.contact p{
+ line-height:2;
+ margin:10px;
+}
 
 footer{
- background:var(--dark-purple);
- color:white;
- padding:35px 6%;
+ background:linear-gradient(110deg,#160020,#35164F,#21052F);
  text-align:center;
+ padding:35px 5%;
+ border-top:3px solid #D9A52D;
  line-height:2;
- border-top:4px solid var(--gold);
 }
 
-footer a{color:var(--light-gold)}
-
-.no-result{
- text-align:center;
- color:#a33;
- padding:25px;
- display:none;
+footer .brand{
+ color:#F5D77C;
+ font-size:25px;
 }
 
-@media(max-width:700px){
+footer p{color:#E8D8F0}
+
+.back-top{
+ position:fixed;
+ bottom:18px;
+ left:18px;
+ background:linear-gradient(120deg,#D9A52D,#FFF0B5);
+ color:#35164F;
+ width:45px;
+ height:45px;
+ border-radius:50%;
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ font-size:24px;
+ font-weight:bold;
+ box-shadow:0 4px 15px #0006;
+ z-index:50;
+}
+
+@media(max-width:850px){
  header{justify-content:center}
  nav{justify-content:center}
- .hero{min-height:360px;text-align:center}
+ .hero{
+  grid-template-columns:1fr;
+  text-align:center;
+ }
  .hero h1{font-size:34px}
- .hero p{font-size:16px}
+ .hero-image{height:260px}
  .about{grid-template-columns:1fr}
- .search input{width:130px}
+}
+
+@media(max-width:500px){
+ .topbar{justify-content:center}
+ .logo{width:52px;height:52px}
+ .brand{font-size:19px}
+ nav{gap:12px}
+ nav a{font-size:13px}
+ .hero{padding:35px 5%}
+ .hero h1{font-size:29px}
+ .hero p{font-size:16px}
  .section{padding:40px 5%}
+ .section-title{font-size:26px}
+ .products{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+ .product img{height:125px}
+ .product-info h3{font-size:16px}
+ .product-info p{font-size:12px}
+ .search input{width:125px}
 }
 </style>
 </head>
 
 <body>
 
+<div class="topbar">
+ <span>NOOR FOODS | د خوندونو نړۍ</span>
+ <span>افغانستان | پښتو</span>
+</div>
+
 <header>
+
  <div class="logo-area">
-  <img src="noor-logo.png" class="logo"
-   alt="Noor Foods Logo">
-  <div class="brand">NOOR FOODS</div>
+  <img src="noor-logo.png" class="logo" alt="Noor Foods Logo">
+  <div class="brand">
+   NOOR FOODS
+   <small>د خوندونو نړۍ</small>
+  </div>
  </div>
 
  <nav>
-  <a href="#home">کورپاڼه</a>
+  <a href="#home" class="home-link">کورپاڼه</a>
   <a href="#categories">کتګورۍ</a>
   <a href="#products">محصولات</a>
   <a href="#about">زموږ په اړه</a>
@@ -299,51 +497,76 @@ footer a{color:var(--light-gold)}
  </nav>
 
  <div class="search">
-  <input id="searchInput"
-   type="search" placeholder="محصول ولټوئ...">
-  <button onclick="searchProducts()">لټون</button>
+  <input id="searchInput" type="search" placeholder="محصول ولټوئ...">
+  <button onclick="searchProducts()">⌕</button>
  </div>
+
 </header>
 
 <section class="hero" id="home">
+
  <div class="hero-content">
   <h1>د خوندونو نړۍ ته ښه راغلاست!</h1>
+
   <p>
-   Noor Foods ستاسو د پخلنځي لپاره د خوندورو
-   او باکیفیته مصالحو کور.
+   Noor Foods ستاسو د پخلنځي لپاره
+   د خوندورو او باکیفیته مصالحو کور.
+   زموږ له محصولاتو سره خپل خواړه لا خوندور کړئ.
   </p>
+
   <a href="#products" class="main-btn">
-   زموږ محصولات وګورئ
+   زموږ محصولات وګورئ ←
   </a>
  </div>
+
+ <img class="hero-image"
+ src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=1000&q=85"
+ alt="د Noor Foods مصالحې">
+
 </section>
 
 <section class="section" id="categories">
+
  <h2 class="section-title">زموږ کتګورۍ</h2>
+ <div class="title-line"></div>
+
  <p class="section-desc">
   د خپلو خوښو مصالحو کتګوري انتخاب کړئ
  </p>
 
  <div class="categories">
+
   <div class="category" onclick="filterCategory('ټول')">
-   ټول محصولات
+   <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=500&q=80" alt="ټول محصولات">
+   <h3>ټول محصولات</h3>
   </div>
+
   <div class="category" onclick="filterCategory('مرچ')">
-   د مرچو ډولونه
+   <img src="https://images.unsplash.com/photo-1588252303782-cb80119abd6d?auto=format&fit=crop&w=500&q=80" alt="مرچ">
+   <h3>د مرچو ډولونه</h3>
   </div>
+
   <div class="category" onclick="filterCategory('پوډر')">
-   مصالحه پوډر
+   <img src="https://images.unsplash.com/photo-1615485500704-8e990f9900f1?auto=format&fit=crop&w=500&q=80" alt="پوډر">
+   <h3>مصالحه پوډر</h3>
   </div>
+
   <div class="category" onclick="filterCategory('نور')">
-   نور مصالحې
+   <img src="https://images.unsplash.com/photo-1603905179139-d6d9c0f4b8f4?auto=format&fit=crop&w=500&q=80" alt="نور مصالحې">
+   <h3>نور مصالحې</h3>
   </div>
+
  </div>
+
 </section>
 
 <section class="section" id="products">
+
  <h2 class="section-title">زموږ محصولات</h2>
+ <div class="title-line"></div>
+
  <p class="section-desc">
-  د Noor Foods د مصالحو ټولګه
+  د Noor Foods د مصالحو ځانګړې ټولګه
  </p>
 
  <div class="products" id="productList">
@@ -443,42 +666,94 @@ footer a{color:var(--light-gold)}
  <div class="no-result" id="noResult">
   محصول پیدا نه شو!
  </div>
+
 </section>
 
 <section class="section about" id="about">
+
  <div>
   <h2 class="section-title">زموږ په اړه</h2>
+  <div class="title-line" style="margin-right:0"></div>
+
   <p>
    Noor Foods د مصالحو او خوراکي محصولاتو
    یو برانډ دی. زموږ موخه دا ده چې د خپلو
    مشتریانو لپاره د پخلنځي د اړتیا وړ
    محصولات وړاندې کړو.
+
+   موږ غواړو د کیفیت، خوند او باور له لارې
+   د خپلو مشتریانو رضایت ترلاسه کړو.
   </p>
  </div>
- <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=900&q=80"
-  alt="د مصالحو ټولګه">
+
+ <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=900&q=80" alt="د مصالحو ټولګه">
+
+</section>
+
+<section class="section">
+
+ <h2 class="section-title">ولې Noor Foods؟</h2>
+ <div class="title-line"></div>
+
+ <div class="features">
+
+  <div class="feature">
+   <h3>✦ لوړ کیفیت</h3>
+   <p>د پخلنځي لپاره د کیفیت لرونکي مصالحو وړاندې کول.</p>
+  </div>
+
+  <div class="feature">
+   <h3>✦ مناسب انتخاب</h3>
+   <p>د بېلابېلو خوړو لپاره د مصالحو پراخه ټولګه.</p>
+  </div>
+
+  <div class="feature">
+   <h3>✦ عمده او پرچون</h3>
+   <p>د عمده او پرچون فرمایشونو لپاره د اړیکې امکان.</p>
+  </div>
+
+  <div class="feature">
+   <h3>✦ د مشتریانو باور</h3>
+   <p>زموږ هدف د مشتریانو رضایت او باور دی.</p>
+  </div>
+
+ </div>
+
 </section>
 
 <section class="section contact" id="contact">
+
  <h2>له موږ سره اړیکه</h2>
+
  <p>
   د محصولاتو، عمده او پرچون فرمایشونو
   لپاره له موږ سره اړیکه ونیسئ.
  </p>
+
  <p>NOOR FOODS | افغانستان</p>
- <a href="#home" class="main-btn">بېرته پورته</a>
+
+ <a href="#products" class="main-btn">
+  زموږ محصولات وګورئ
+ </a>
+
 </section>
 
 <footer>
- <div class="brand" style="color:#F1D58A">
-  NOOR FOODS
- </div>
+
+ <div class="brand">NOOR FOODS</div>
+
  <p>د خوندونو نړۍ</p>
+
  <p>© 2026 Noor Foods. ټول حقوق خوندي دي.</p>
+
 </footer>
 
+<a href="#home" class="back-top">↑</a>
+
 <script>
+
 function searchProducts(){
+
  const value=document.getElementById('searchInput')
   .value.trim().toLowerCase();
 
@@ -486,10 +761,14 @@ function searchProducts(){
  let count=0;
 
  products.forEach(product=>{
+
   const name=product.dataset.name.toLowerCase();
   const show=name.includes(value);
+
   product.style.display=show?'':'none';
-  if(show) count++;
+
+  if(show)count++;
+
  });
 
  document.getElementById('noResult').style.display=
@@ -498,23 +777,28 @@ function searchProducts(){
  document.getElementById('products').scrollIntoView({
   behavior:'smooth'
  });
+
 }
 
 document.getElementById('searchInput')
  .addEventListener('input',searchProducts);
 
 function filterCategory(category){
- const products=document.querySelectorAll('.product');
- let count=0;
 
  document.getElementById('searchInput').value='';
 
+ const products=document.querySelectorAll('.product');
+ let count=0;
+
  products.forEach(product=>{
+
   const show=category==='ټول'||
    product.dataset.category===category;
 
   product.style.display=show?'':'none';
-  if(show) count++;
+
+  if(show)count++;
+
  });
 
  document.getElementById('noResult').style.display=
@@ -523,9 +807,11 @@ function filterCategory(category){
  document.getElementById('products').scrollIntoView({
   behavior:'smooth'
  });
+
 }
+
 </script>
 
 </body>
- </html>
- 
+  </html>
+   
