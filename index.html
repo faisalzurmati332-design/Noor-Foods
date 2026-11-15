@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ps" dir="rtl">
 <head>
@@ -8,127 +7,179 @@
 
 <style>
 *{box-sizing:border-box}
+
+:root{
+ --purple:#542477;
+ --dark-purple:#35164F;
+ --gold:#D9A52D;
+ --light-gold:#F1D58A;
+ --cream:#FFFAF0;
+ --white:#FFFFFF;
+ --text:#292929;
+}
+
 body{
  margin:0;
  font-family:Arial,sans-serif;
- background:#fff;
- color:#292929;
+ background:var(--white);
+ color:var(--text);
 }
+
 a{text-decoration:none;color:inherit}
+
 header{
- background:#fff;
+ background:var(--white);
  padding:14px 6%;
  display:flex;
  align-items:center;
  justify-content:space-between;
  gap:15px;
  flex-wrap:wrap;
- border-bottom:1px solid #eee;
+ border-bottom:2px solid var(--light-gold);
  position:sticky;
  top:0;
  z-index:10;
 }
+
 .logo-area{
  display:flex;
  align-items:center;
  gap:10px;
 }
+
 .logo{
  width:65px;
  height:65px;
  object-fit:contain;
 }
+
 .brand{
- color:#174d32;
+ color:var(--purple);
  font-size:25px;
  font-weight:bold;
 }
+
 nav{
  display:flex;
  gap:20px;
  flex-wrap:wrap;
 }
-nav a{font-weight:bold;font-size:14px}
-nav a:hover{color:#bd8b27}
+
+nav a{
+ font-weight:bold;
+ font-size:14px;
+ transition:.2s;
+}
+
+nav a:hover{color:var(--gold)}
+
 .search{
  display:flex;
- border:1px solid #ddd;
+ border:1px solid var(--light-gold);
  border-radius:30px;
  overflow:hidden;
 }
+
 .search input{
  border:0;
  outline:0;
  padding:11px;
  width:160px;
 }
+
 .search button{
  border:0;
- background:#174d32;
+ background:var(--purple);
  color:white;
  padding:10px 15px;
  cursor:pointer;
 }
+
+.search button:hover{background:var(--dark-purple)}
+
 .hero{
  min-height:440px;
  display:flex;
  align-items:center;
  padding:60px 8%;
  background:
- linear-gradient(90deg,rgba(0,0,0,.65),rgba(0,0,0,.1)),
+ linear-gradient(90deg,rgba(53,22,79,.85),rgba(84,36,119,.25)),
  url('https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=1600&q=85')
  center/cover;
  color:white;
 }
+
 .hero-content{max-width:570px}
-.hero h1{font-size:48px;margin:0 0 15px}
-.hero p{font-size:19px;line-height:1.9}
+
+.hero h1{
+ font-size:48px;
+ margin:0 0 15px;
+}
+
+.hero p{
+ font-size:19px;
+ line-height:1.9;
+}
+
 .main-btn{
  display:inline-block;
- background:#c69a3b;
- color:#fff;
+ background:var(--gold);
+ color:var(--dark-purple);
  padding:13px 27px;
  border-radius:5px;
  font-weight:bold;
  margin-top:12px;
+ transition:.2s;
 }
-.section{
- padding:55px 6%;
+
+.main-btn:hover{
+ background:var(--light-gold);
 }
+
+.section{padding:55px 6%}
+
 .section-title{
  text-align:center;
- color:#174d32;
+ color:var(--purple);
  font-size:30px;
  margin-bottom:12px;
 }
+
 .section-desc{
  text-align:center;
  color:#777;
  margin-bottom:35px;
 }
+
 .categories{
  display:grid;
  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
  gap:18px;
 }
+
 .category{
- background:#f7f5ef;
+ background:var(--cream);
  padding:24px 12px;
  text-align:center;
  border-radius:8px;
  font-weight:bold;
  cursor:pointer;
- border:1px solid #eee;
+ border:1px solid var(--light-gold);
+ transition:.2s;
 }
+
 .category:hover{
- background:#174d32;
+ background:var(--purple);
  color:white;
+ border-color:var(--purple);
 }
+
 .products{
  display:grid;
  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
  gap:23px;
 }
+
 .product{
  border:1px solid #eee;
  border-radius:9px;
@@ -136,68 +187,87 @@ nav a:hover{color:#bd8b27}
  background:#fff;
  transition:.25s;
 }
+
 .product:hover{
  transform:translateY(-5px);
  box-shadow:0 8px 22px #00000012;
 }
+
 .product img{
  width:100%;
  height:190px;
  object-fit:cover;
 }
+
 .product-info{padding:17px}
+
 .product-info h3{
- color:#174d32;
+ color:var(--purple);
  margin:0 0 10px;
 }
+
 .product-info p{
  color:#777;
  line-height:1.7;
  font-size:14px;
 }
+
 .order-btn{
  display:block;
  text-align:center;
  padding:11px;
- background:#174d32;
+ background:var(--purple);
  color:white;
  border-radius:5px;
  margin-top:12px;
+ transition:.2s;
 }
-.order-btn:hover{background:#c69a3b}
+
+.order-btn:hover{background:var(--gold);color:var(--dark-purple)}
+
 .about{
- background:#f7f5ef;
+ background:var(--cream);
  display:grid;
  grid-template-columns:1fr 1fr;
  gap:35px;
  align-items:center;
 }
+
 .about img{
  width:100%;
  border-radius:10px;
 }
+
 .about p{line-height:2;color:#555}
+
 .contact{
- background:#174d32;
+ background:var(--purple);
  color:white;
  text-align:center;
 }
+
 .contact h2{font-size:30px}
+
 .contact p{line-height:2}
+
 footer{
- background:#102d20;
+ background:var(--dark-purple);
  color:white;
  padding:35px 6%;
  text-align:center;
  line-height:2;
+ border-top:4px solid var(--gold);
 }
-footer a{color:#e3bd69}
+
+footer a{color:var(--light-gold)}
+
 .no-result{
  text-align:center;
  color:#a33;
  padding:25px;
  display:none;
 }
+
 @media(max-width:700px){
  header{justify-content:center}
  nav{justify-content:center}
@@ -278,7 +348,7 @@ footer a{color:#e3bd69}
 
  <div class="products" id="productList">
 
-  <div class="product" data-name="تور مرچ" data-category="نور">
+  <div class="product" data-name="تور مرچ" data-category="مرچ">
    <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=600&q=80" alt="تور مرچ">
    <div class="product-info">
     <h3>تور مرچ</h3>
@@ -400,7 +470,7 @@ footer a{color:#e3bd69}
 </section>
 
 <footer>
- <div class="brand" style="color:#e3bd69">
+ <div class="brand" style="color:#F1D58A">
   NOOR FOODS
  </div>
  <p>د خوندونو نړۍ</p>
@@ -411,6 +481,7 @@ footer a{color:#e3bd69}
 function searchProducts(){
  const value=document.getElementById('searchInput')
   .value.trim().toLowerCase();
+
  const products=document.querySelectorAll('.product');
  let count=0;
 
@@ -436,9 +507,12 @@ function filterCategory(category){
  const products=document.querySelectorAll('.product');
  let count=0;
 
+ document.getElementById('searchInput').value='';
+
  products.forEach(product=>{
   const show=category==='ټول'||
    product.dataset.category===category;
+
   product.style.display=show?'':'none';
   if(show) count++;
  });
@@ -453,4 +527,5 @@ function filterCategory(category){
 </script>
 
 </body>
-</html>
+ </html>
+ 
