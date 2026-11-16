@@ -8,297 +8,319 @@
 <meta name="description" content="Noor Foods - Premium Spices and Food Products">
 <title>Noor Foods | نور فوډز</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
-
 <style>
-:root{
- --deep:#21052F;--purple:#542477;--dark:#35164F;
- --violet:#8B3CB0;--gold:#D9A52D;
- --light-gold:#F5D77C;--cream:#FFF0D0;
- --white:#fff;--muted:#c8b8d0;
- --glass:rgba(255,255,255,.07);
- --border:rgba(245,215,124,.2);
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+ margin:0;
+ font-family:Arial,sans-serif;
+ background:linear-gradient(135deg,#21052F,#35164F,#542477);
+ color:#FFF0D0;
 }
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:90px}
-body{font-family:'Noto Naskh Arabic',Arial,sans-serif;background:var(--deep);color:white;overflow-x:hidden}
-body[dir="ltr"]{font-family:Arial,sans-serif}
-a{text-decoration:none;color:inherit}
+a{text-decoration:none}
 button,input{font:inherit}
-button{cursor:pointer}
-img{max-width:100%;display:block}
-.container{width:min(1180px,92%);margin:auto}
-.gold-text{
- background:linear-gradient(110deg,#D9A52D,#FFF0B0,#C28A16);
- -webkit-background-clip:text;background-clip:text;color:transparent;
-}
-body:before,body:after{
- content:"";position:fixed;pointer-events:none;z-index:-1;border-radius:50%;
-}
-body:before{width:600px;height:600px;top:-250px;right:-200px;background:radial-gradient(circle,rgba(139,60,176,.22),transparent 70%)}
-body:after{width:500px;height:500px;bottom:-250px;left:-200px;background:radial-gradient(circle,rgba(217,165,45,.09),transparent 70%)}
+.container{width:90%;max-width:1200px;margin:auto}
 
 /* HEADER */
-header{position:sticky;top:0;z-index:1000;background:rgba(33,5,47,.96);backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
-.navbar{min-height:82px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.logo{display:flex;align-items:center;gap:12px;flex-shrink:0}
-.logo img{width:60px;height:60px;object-fit:contain}
-.logo-name{font-family:'Playfair Display',serif;font-size:23px;font-weight:800;color:var(--light-gold)}
-.logo-sub{font-size:11px;color:var(--muted);letter-spacing:3px}
-.nav-links{display:flex;align-items:center;gap:22px;list-style:none}
-.nav-links a{font-size:14px;color:#eee3f3;transition:.3s}
-.nav-links a:hover{color:var(--light-gold)}
-.nav-actions{display:flex;align-items:center;gap:12px}
-.nav-order{padding:11px 18px;border-radius:30px;color:var(--deep);font-weight:800;font-size:13px;background:linear-gradient(120deg,var(--gold),var(--light-gold))}
-.menu-btn{display:none;border:1px solid var(--border);background:var(--glass);color:white;font-size:24px;width:43px;height:43px;border-radius:12px}
+header{
+ background:linear-gradient(100deg,#21052F,#542477,#35164F);
+ border-bottom:1px solid #D9A52D66;
+ position:sticky;top:0;z-index:1000;
+ box-shadow:0 5px 20px #0004;
+}
+.header-inner{
+ min-height:82px;
+ display:flex;align-items:center;justify-content:space-between;
+ gap:20px;width:90%;max-width:1200px;margin:auto;
+}
+.logo{display:flex;align-items:center;gap:10px}
+.logo img{width:53px;height:53px;object-fit:contain}
+.logo h2{color:#F5D77C;margin:0;font-size:23px}
+nav{display:flex;align-items:center;gap:22px}
+nav a{color:#FFF0D0;font-size:14px;transition:.3s}
+nav a:hover{color:#F5D77C}
+.nav-order{
+ background:linear-gradient(90deg,#D9A52D,#F5D77C);
+ color:#21052F!important;padding:11px 17px;border-radius:9px;font-weight:bold
+}
+.languages{display:flex;gap:5px}
+.languages button{
+ background:#35164F;color:#FFF0D0;border:1px solid #D9A52D66;
+ padding:7px 9px;border-radius:7px;cursor:pointer
+}
+.languages button.active{background:#D9A52D;color:#21052F}
+.menu-btn{
+ display:none;background:none;border:1px solid #D9A52D;
+ color:#F5D77C;font-size:25px;border-radius:8px;padding:4px 11px
+}
 
-/* LANGUAGE */
-.language-menu{list-style:none;display:flex;align-items:center;gap:7px}
-.language-title{display:none}
-.language-options{display:flex;gap:6px}
-.language-options button{padding:8px 10px;border-radius:9px;border:1px solid var(--border);background:rgba(255,255,255,.04);color:white;font-size:12px;transition:.3s}
-.language-options button.active,.language-options button:hover{background:linear-gradient(110deg,var(--gold),var(--light-gold));color:var(--deep);font-weight:800}
-
-/* IMAGE SLIDER */
-.spice-slider{position:relative;width:100%;height:370px;overflow:hidden;background:#21052F;border-bottom:1px solid var(--border)}
-.slide{position:absolute;inset:0;opacity:0;transition:opacity 1s ease}
+/* SLIDER */
+.spice-slider{
+ position:relative;height:390px;overflow:hidden;
+ border-bottom:2px solid #D9A52D66
+}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity .8s}
 .slide.active{opacity:1}
 .slide img{width:100%;height:100%;object-fit:cover}
-.slide:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(33,5,47,.08),rgba(33,5,47,.4))}
-.slide-caption{position:absolute;z-index:2;right:8%;bottom:65px;color:white;text-shadow:0 2px 12px #21052F}
-.slide-caption h2{font-size:clamp(25px,4vw,42px);color:var(--light-gold);margin-bottom:8px}
-.slide-caption p{font-size:15px}
-.slider-dots{position:absolute;z-index:5;bottom:18px;left:50%;transform:translateX(-50%);display:flex;gap:10px}
-.slider-dot{width:12px;height:12px;border:2px solid white;border-radius:50%;background:transparent;padding:0}
-.slider-dot.active{background:var(--gold);border-color:var(--gold)}
-.slider-arrow{position:absolute;z-index:5;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;border:1px solid var(--border);background:rgba(33,5,47,.65);color:white;font-size:23px}
-.slider-prev{left:18px}.slider-next{right:18px}
+.slide:after{
+ content:"";position:absolute;inset:0;
+ background:linear-gradient(90deg,#21052FBB,#21052F55)
+}
+.slide-caption{
+ position:absolute;z-index:2;top:50%;right:10%;
+ transform:translateY(-50%);max-width:600px
+}
+.slide-caption h2{font-size:38px;color:#F5D77C;margin:0 0 12px}
+.slide-caption p{font-size:19px}
+.slider-arrow{
+ position:absolute;z-index:3;top:50%;transform:translateY(-50%);
+ border:1px solid #F5D77C;background:#21052FBB;color:#F5D77C;
+ width:43px;height:43px;border-radius:50%;font-size:27px;cursor:pointer
+}
+.slider-prev{left:20px}.slider-next{right:20px}
+.slider-dots{
+ position:absolute;z-index:4;bottom:17px;left:50%;
+ transform:translateX(-50%);display:flex;gap:9px
+}
+.slider-dot{width:10px;height:10px;border:0;border-radius:50%;background:#FFF0D0;cursor:pointer}
+.slider-dot.active{background:#F5D77C;width:25px;border-radius:10px}
 
 /* HERO */
-.hero{position:relative;padding:80px 0 75px;overflow:hidden}
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:50px}
-.hero-label{display:inline-flex;align-items:center;gap:9px;padding:8px 17px;border:1px solid var(--border);border-radius:30px;color:var(--light-gold);font-size:13px;background:rgba(255,255,255,.04);margin-bottom:22px}
-.hero-label span:first-child{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px var(--gold)}
-.hero h1{font-size:clamp(36px,5vw,65px);line-height:1.55;font-weight:800;margin-bottom:18px}
-.hero h1 span{display:block}
-.hero p{max-width:530px;line-height:2.2;color:#d3c4db;font-size:16px;margin-bottom:28px}
-.hero-buttons{display:flex;align-items:center;gap:15px;flex-wrap:wrap}
-.btn-primary,.btn-outline{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 25px;border-radius:30px;transition:.3s}
-.btn-primary{background:linear-gradient(115deg,#D9A52D,#F5D77C);color:#291039;font-weight:800;box-shadow:0 10px 35px rgba(217,165,45,.18)}
-.btn-primary:hover,.btn-outline:hover{transform:translateY(-4px)}
-.btn-outline{border:1px solid var(--border);color:var(--cream)}
-.btn-outline:hover{background:var(--glass);border-color:var(--gold)}
-.hero-visual{position:relative;min-height:440px;display:flex;align-items:center;justify-content:center}
-.hero-ring{position:absolute;width:390px;height:390px;border:1px solid rgba(245,215,124,.23);border-radius:50%;box-shadow:0 0 80px rgba(139,60,176,.17)}
-.hero-ring:before,.hero-ring:after{content:"";position:absolute;border:1px solid rgba(245,215,124,.13);border-radius:50%;inset:25px}
-.hero-ring:after{inset:55px}
-.hero-image{position:relative;z-index:2;width:min(410px,90%);height:410px;object-fit:cover;border-radius:48% 48% 22px 22px;border:5px solid rgba(245,215,124,.4);box-shadow:0 30px 90px rgba(0,0,0,.5)}
-.hero-tag{position:absolute;z-index:3;bottom:25px;right:0;padding:14px 20px;background:linear-gradient(120deg,var(--purple),var(--deep));border:1px solid var(--border);border-radius:15px;box-shadow:0 15px 35px rgba(0,0,0,.3)}
-.hero-tag strong{display:block;color:var(--light-gold);font-size:17px}
-.hero-tag small{color:var(--muted)}
+.hero{padding:75px 0;background:linear-gradient(130deg,#21052F,#542477)}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:45px;align-items:center}
+.hero-label{color:#F5D77C;margin-bottom:18px}
+.hero-label span:first-child{
+ display:inline-block;width:25px;height:3px;background:#D9A52D;
+ vertical-align:middle;margin-left:8px
+}
+.hero h1{font-size:48px;line-height:1.5;margin:0 0 15px}
+.gold-text{display:block;color:#F5D77C}
+.hero-content>p{font-size:17px;line-height:2;color:#FFF0D0}
+.hero-buttons{display:flex;gap:13px;margin-top:25px;flex-wrap:wrap}
+.btn-primary,.btn-outline{
+ padding:14px 22px;border-radius:10px;font-weight:bold;display:inline-block
+}
+.btn-primary{background:linear-gradient(90deg,#D9A52D,#F5D77C);color:#21052F}
+.btn-outline{border:1px solid #F5D77C;color:#F5D77C}
+.hero-visual{position:relative;text-align:center}
+.hero-ring{
+ position:absolute;inset:5%;border:2px solid #D9A52D;
+ border-radius:50%;transform:rotate(-15deg)
+}
+.hero-image{
+ width:85%;height:350px;object-fit:cover;border-radius:48% 48% 20px 20px;
+ position:relative;border:5px solid #D9A52D66
+}
+.hero-tag{
+ position:absolute;bottom:12px;left:0;background:#21052F;
+ border:1px solid #D9A52D;padding:13px 18px;border-radius:12px
+}
+.hero-tag strong{display:block;color:#F5D77C}
+.hero-tag small{font-size:11px}
 
 /* TRUST */
-.trust-strip{border-bottom:1px solid var(--border);background:rgba(255,255,255,.025);padding:24px 0}
-.trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;text-align:center}
-.trust-item{display:flex;justify-content:center;align-items:center;gap:12px}
-.trust-icon{width:43px;height:43px;display:grid;place-items:center;border-radius:50%;background:rgba(217,165,45,.1);color:var(--light-gold);font-size:20px}
-.trust-item strong{display:block;font-size:14px;color:var(--cream)}
-.trust-item small{display:block;font-size:11px;color:var(--muted)}
+.trust-strip{background:#21052F;border-block:1px solid #D9A52D55;padding:25px 0}
+.trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.trust-item{display:flex;align-items:center;justify-content:center;gap:13px}
+.trust-icon{font-size:28px;color:#F5D77C}
+.trust-item strong{display:block;color:#F5D77C}
+.trust-item small{display:block;margin-top:5px;color:#FFF0D0}
 
 /* SECTIONS */
-section.content-section{padding:80px 0}
-.section-heading{text-align:center;margin-bottom:38px}
-.section-kicker{color:var(--gold);font-size:13px;letter-spacing:2px;margin-bottom:12px}
-.section-heading h2{font-size:clamp(27px,4vw,40px);color:var(--cream);margin-bottom:12px}
-.section-heading p{color:var(--muted);line-height:2;font-size:14px}
+.content-section{padding:75px 0}
+.section-heading{text-align:center;margin-bottom:35px}
+.section-kicker{color:#F5D77C;font-size:14px}
+.section-heading h2,.about-content h2{
+ font-size:32px;color:#F5D77C;margin:12px 0
+}
+.section-heading p{color:#FFF0D0;line-height:1.8}
 
 /* SEARCH */
-.search-box{max-width:440px;margin:0 auto 28px;position:relative}
-.search-box input{width:100%;padding:14px 48px 14px 18px;border-radius:30px;border:1px solid var(--border);outline:none;color:white;background:rgba(255,255,255,.06)}
-.search-box input:focus{border-color:var(--gold)}
-.search-box input::placeholder{color:#ad9ab7}
-.search-icon{position:absolute;right:19px;top:50%;transform:translateY(-50%);font-size:19px}
-.categories{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:32px}
-.category-btn{padding:9px 20px;border:1px solid var(--border);border-radius:30px;background:rgba(255,255,255,.035);color:#e8ddec;font-size:13px;transition:.3s}
-.category-btn:hover,.category-btn.active{color:var(--deep);border-color:var(--gold);background:linear-gradient(110deg,var(--gold),var(--light-gold));font-weight:800}
+.search-box{
+ max-width:550px;margin:25px auto;position:relative
+}
+.search-box input{
+ width:100%;padding:15px 45px 15px 15px;border-radius:12px;
+ border:1px solid #D9A52D;background:#21052F;color:#FFF0D0;
+ outline:none
+}
+.search-box input:focus{box-shadow:0 0 0 3px #D9A52D33}
+.search-icon{position:absolute;right:15px;top:10px;font-size:25px;color:#F5D77C}
+.categories{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:30px}
+.category-btn{
+ border:1px solid #D9A52D;background:#35164F;color:#FFF0D0;
+ padding:10px 18px;border-radius:25px;cursor:pointer
+}
+.category-btn.active,.category-btn:hover{
+ background:linear-gradient(90deg,#D9A52D,#F5D77C);color:#21052F
+}
 
 /* PRODUCTS */
-.products-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.product-card{background:linear-gradient(150deg,rgba(255,255,255,.09),rgba(255,255,255,.025));border:1px solid var(--border);border-radius:18px;overflow:hidden;transition:.3s}
-.product-card:hover{transform:translateY(-7px);border-color:rgba(245,215,124,.6);box-shadow:0 20px 45px rgba(0,0,0,.25)}
-.product-image{height:205px;overflow:hidden;position:relative;background:#35164F}
-.product-image img{width:100%;height:100%;object-fit:cover;transition:.5s}
-.product-card:hover .product-image img{transform:scale(1.08)}
-.product-number{position:absolute;top:12px;right:12px;padding:5px 11px;border-radius:20px;color:var(--deep);background:var(--light-gold);font-size:11px;font-weight:800}
-.product-info{padding:17px}
-.product-info h3{color:var(--cream);font-size:17px;margin-bottom:8px}
-.product-info p{color:var(--muted);font-size:12px;line-height:1.9;min-height:43px}
-.product-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:15px}
-.price-label{font-size:12px;color:var(--light-gold)}
-.details-btn{padding:8px 14px;border-radius:25px;border:1px solid var(--border);background:transparent;color:var(--cream);font-size:12px;transition:.3s}
-.details-btn:hover{background:var(--gold);color:var(--deep)}
-.no-products{grid-column:1/-1;text-align:center;padding:40px;color:var(--muted)}
+.products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:23px}
+.product-card{
+ background:linear-gradient(145deg,#542477,#35164F);
+ border:1px solid #D9A52D66;border-radius:17px;overflow:hidden;
+ transition:.3s;box-shadow:0 10px 25px #0003
+}
+.product-card:hover{transform:translateY(-7px);box-shadow:0 15px 30px #0005}
+.product-image{height:220px;position:relative;overflow:hidden}
+.product-image img{width:100%;height:100%;object-fit:cover;transition:.4s}
+.product-card:hover .product-image img{transform:scale(1.06)}
+.product-number{
+ position:absolute;top:12px;right:12px;background:#21052FDD;
+ color:#F5D77C;padding:7px 12px;border-radius:8px;font-size:12px
+}
+.product-info{padding:18px}
+.product-info h3{color:#F5D77C;margin:0 0 10px;font-size:21px}
+.product-info p{line-height:1.8;color:#FFF0D0;min-height:48px;font-size:14px}
+.product-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.price-label{font-size:12px;color:#F5D77C}
+.details-btn{
+ border:0;background:linear-gradient(90deg,#D9A52D,#F5D77C);
+ color:#21052F;padding:10px 15px;border-radius:8px;
+ font-weight:bold;cursor:pointer
+}
+.no-products{text-align:center;grid-column:1/-1;padding:35px;color:#F5D77C}
 
 /* ABOUT */
-.about-section{background:linear-gradient(115deg,rgba(84,36,119,.36),rgba(33,5,47,.3));border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:50px}
+.about-section{background:linear-gradient(130deg,#35164F,#21052F)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}
 .about-image-wrap{position:relative}
-.about-image{width:100%;height:410px;object-fit:cover;border-radius:22px;border:1px solid var(--border)}
-.about-badge{position:absolute;bottom:20px;left:-10px;background:linear-gradient(130deg,var(--gold),var(--light-gold));color:var(--deep);padding:15px 22px;border-radius:14px;font-weight:800}
-.about-content h2{font-size:34px;line-height:1.7;color:var(--cream);margin-bottom:15px}
-.about-content p{color:var(--muted);font-size:14px;line-height:2.3;margin-bottom:15px}
-.about-points{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
-.about-point{padding:12px;border:1px solid var(--border);border-radius:12px;background:rgba(255,255,255,.035);color:var(--cream);font-size:13px}
-.about-point span{color:var(--gold);margin-inline-end:7px}
+.about-image{width:100%;height:380px;object-fit:cover;border-radius:20px;border:2px solid #D9A52D66}
+.about-badge{
+ position:absolute;bottom:20px;right:20px;background:#21052F;
+ border:1px solid #D9A52D;color:#F5D77C;padding:13px 18px;border-radius:10px
+}
+.about-content p{line-height:2;color:#FFF0D0}
+.about-points{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:22px}
+.about-point{color:#F5D77C}
+.about-point span:first-child{margin-left:8px}
 
 /* FEATURES */
-.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.feature-card{text-align:center;padding:30px 20px;border:1px solid var(--border);border-radius:18px;background:rgba(255,255,255,.035);transition:.3s}
-.feature-card:hover{transform:translateY(-5px);background:rgba(139,60,176,.13)}
-.feature-icon{width:58px;height:58px;margin:0 auto 17px;display:grid;place-items:center;border-radius:18px;background:rgba(217,165,45,.1);color:var(--light-gold);font-size:26px}
-.feature-card h3{font-size:17px;color:var(--cream);margin-bottom:10px}
-.feature-card p{color:var(--muted);font-size:13px;line-height:2}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.feature-card{
+ background:linear-gradient(145deg,#542477,#35164F);
+ border:1px solid #D9A52D66;border-radius:16px;padding:27px;text-align:center
+}
+.feature-icon{font-size:35px;color:#F5D77C}
+.feature-card h3{color:#F5D77C}
+.feature-card p{line-height:1.9;color:#FFF0D0}
 
 /* CONTACT */
-.contact-section{padding:65px 0;background:linear-gradient(120deg,#35164F,#542477,#21052F);border-top:1px solid var(--border)}
-.contact-box{display:flex;justify-content:space-between;align-items:center;gap:25px}
-.contact-box h2{color:var(--cream);font-size:29px;margin-bottom:10px}
-.contact-box p{color:#d7c7df;font-size:14px;line-height:2}
-.whatsapp-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;background:#20b86a;color:white;border-radius:30px;font-weight:800;white-space:nowrap;transition:.3s}
-.whatsapp-btn:hover{transform:translateY(-4px)}
+.contact-section{
+ text-align:center;padding:65px 20px;
+ background:linear-gradient(120deg,#542477,#21052F)
+}
+.contact-section h2{color:#F5D77C;font-size:32px}
+.contact-section p{line-height:1.8}
+.whatsapp-btn{
+ display:inline-block;margin-top:15px;background:#D9A52D;
+ color:#21052F;padding:15px 25px;border-radius:10px;font-weight:bold
+}
 
 /* FOOTER */
-footer{background:#160321;border-top:1px solid var(--border);padding:50px 0 20px}
-.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:35px}
-.footer-brand p{color:var(--muted);font-size:13px;line-height:2.2;max-width:340px;margin-top:15px}
-.footer-col h3{color:var(--light-gold);font-size:16px;margin-bottom:16px}
-.footer-col a{display:block;color:var(--muted);font-size:13px;margin-bottom:11px;transition:.3s}
-.footer-col a:hover{color:var(--light-gold)}
-.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:18px;text-align:center;color:#9f8ba9;font-size:12px}
-
-/* MODAL */
-.modal{position:fixed;inset:0;z-index:2000;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(0,0,0,.78);backdrop-filter:blur(8px)}
-.modal.show{display:flex}
-.modal-box{width:min(760px,100%);max-height:90vh;overflow-y:auto;position:relative;display:grid;grid-template-columns:1fr 1fr;background:linear-gradient(145deg,#45205b,#21052F);border:1px solid var(--border);border-radius:22px}
-.modal-box img{width:100%;height:100%;min-height:320px;object-fit:cover}
-.modal-content{padding:32px 24px}
-.modal-content h2{color:var(--light-gold);font-size:26px;margin:15px 0}
-.modal-content p{color:#d3c4db;font-size:14px;line-height:2.2}
-.modal-price{margin:17px 0;padding:13px;border:1px solid var(--border);border-radius:12px;color:var(--light-gold);font-size:13px;line-height:2}
-.close-modal{position:absolute;top:10px;left:10px;width:38px;height:38px;border:1px solid var(--border);border-radius:50%;color:white;background:#21052F;font-size:22px;z-index:2}
+footer{background:#21052F;border-top:1px solid #D9A52D66;padding:40px 0 20px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px}
+footer h3{color:#F5D77C}
+footer p,footer a{color:#FFF0D0;line-height:2}
+footer a:hover{color:#F5D77C}
+.footer-bottom{
+ text-align:center;border-top:1px solid #D9A52D44;
+ margin-top:25px;padding-top:18px;color:#F5D77C;font-size:13px
+}
 
 /* RESPONSIVE */
 @media(max-width:1000px){
- .nav-links{gap:12px}.nav-links a{font-size:12px}
- .products-grid{grid-template-columns:repeat(3,1fr)}
- .hero-grid{gap:25px}.hero-image{height:350px}
- .hero-ring{width:340px;height:340px}
- .language-options button{font-size:11px;padding:7px}
+ nav{gap:12px}
+ .products-grid{grid-template-columns:repeat(2,1fr)}
+ .hero h1{font-size:39px}
 }
 @media(max-width:720px){
- .navbar{min-height:74px;justify-content:space-between}
- .logo{order:1}.menu-btn{display:block;order:3}
- .logo img{width:50px;height:50px}.logo-name{font-size:19px}
- .nav-actions{display:none}
- .nav-links{display:none;position:absolute;top:74px;right:0;left:0;width:100%;padding:16px 20px;background:#21052F;border-bottom:1px solid var(--border);flex-direction:column;align-items:stretch;gap:0;max-height:calc(100vh - 74px);overflow-y:auto}
- .nav-links.open{display:flex}
- .nav-links li>a{display:block;padding:12px;border-bottom:1px solid rgba(255,255,255,.06);font-size:14px}
- .language-menu{display:block;padding-top:13px}
- .language-title{display:block;color:var(--light-gold);font-size:13px}
- .language-options{display:grid;grid-template-columns:repeat(3,1fr);margin-top:8px}
- .language-options button{min-width:0;padding:9px 4px}
- .spice-slider{height:230px}
- .slide-caption{right:6%;bottom:52px}
- .slide-caption p{font-size:12px}
- .slider-arrow{width:34px;height:34px;font-size:19px}
- .hero{padding:48px 0 50px}
- .hero-grid{grid-template-columns:1fr;text-align:center}
- .hero h1{font-size:39px;line-height:1.6}
- .hero p{margin:0 auto 24px;font-size:14px}
- .hero-buttons{justify-content:center}
- .hero-visual{min-height:325px;margin-top:15px}
- .hero-image{height:295px;width:275px}
- .hero-ring{width:285px;height:285px}
- .hero-tag{right:4px;bottom:0;padding:10px 14px}
- section.content-section{padding:60px 0}
- .trust-grid{grid-template-columns:1fr;gap:16px}
- .trust-item{justify-content:flex-start;padding-inline-start:15%}
- .products-grid{grid-template-columns:repeat(2,1fr);gap:12px}
- .product-image{height:155px}
- .product-info{padding:12px}
- .product-info h3{font-size:15px}.product-info p{font-size:11px}
- .product-bottom{align-items:flex-start;flex-direction:column}
- .details-btn{width:100%}
- .about-grid{grid-template-columns:1fr;gap:28px}
- .about-image{height:280px}
- .about-content h2{font-size:27px}
+ .header-inner{min-height:70px}
+ .menu-btn{display:block}
+ nav{
+  display:none;position:absolute;top:70px;right:0;left:0;
+  background:#21052F;padding:20px;flex-direction:column;
+  align-items:stretch;border-bottom:1px solid #D9A52D
+ }
+ nav.open{display:flex}
+ .languages{justify-content:center}
+ .spice-slider{height:270px}
+ .slide-caption{right:10%;left:10%}
+ .slide-caption h2{font-size:25px}
+ .slide-caption p{font-size:15px}
+ .hero{padding:45px 0}
+ .hero-grid,.about-grid{grid-template-columns:1fr}
+ .hero h1{font-size:35px}
+ .hero-image{height:280px}
+ .trust-grid{grid-template-columns:1fr}
+ .trust-item{justify-content:flex-start}
+ .content-section{padding:50px 0}
+ .section-heading h2,.about-content h2{font-size:26px}
+ .products-grid{grid-template-columns:1fr}
+ .about-image{height:270px}
  .features-grid{grid-template-columns:1fr}
- .contact-box{flex-direction:column;text-align:center}
- .footer-grid{grid-template-columns:1fr;gap:25px}
- .modal-box{grid-template-columns:1fr}
- .modal-box img{height:220px;min-height:220px}
- .modal-content{padding:22px}
+ .footer-grid{grid-template-columns:1fr}
 }
 @media(max-width:380px){
- .products-grid{grid-template-columns:1fr}
- .product-image{height:210px}
+ .logo h2{font-size:18px}
+ .hero h1{font-size:29px}
  .about-points{grid-template-columns:1fr}
- .hero h1{font-size:34px}
-}
-@media(prefers-reduced-motion:reduce){
- html{scroll-behavior:auto}
- *,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}
 }
 </style>
 </head>
 
 <body>
+
 <header>
- <div class="container navbar">
+ <div class="header-inner">
   <a href="#home" class="logo">
-   <img src="noor-logo.png" alt="Noor Foods Logo">
-   <div><div class="logo-name">NOOR FOODS</div><div class="logo-sub">نور فوډز</div></div>
+   <img src="noor-logo.png" alt="Noor Foods">
+   <h2>Noor Foods</h2>
   </a>
 
-  <ul class="nav-links" id="navLinks">
-   <li><a href="#home" data-i18n="navHome">کور</a></li>
-   <li><a href="#products" data-i18n="navProducts">محصولات</a></li>
-   <li><a href="#about" data-i18n="navAbout">زموږ په اړه</a></li>
-   <li><a href="#features" data-i18n="navFeatures">ځانګړتیاوې</a></li>
-   <li><a href="#contact" data-i18n="navContact">اړیکه</a></li>
-   <li class="language-menu">
-    <span class="language-title" data-i18n="chooseLanguage">🌐 ژبه انتخاب کړئ</span>
-    <div class="language-options">
-     <button type="button" data-lang="ps" class="active">پښتو</button>
-     <button type="button" data-lang="fa">دری</button>
-     <button type="button" data-lang="en">English</button>
-    </div>
-   </li>
-  </ul>
-  <div class="nav-actions">
-   <a class="nav-order" href="https://wa.me/93748806537" target="_blank" rel="noopener" data-i18n="navOrder">اوس فرمایش وکړئ ↗</a>
-  </div>
-  <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false">☰</button>
+  <button class="menu-btn" id="menuBtn" aria-expanded="false">☰</button>
+
+  <nav id="navLinks">
+   <a href="#home" data-i18n="navHome">کور</a>
+   <a href="#products" data-i18n="navProducts">محصولات</a>
+   <a href="#about" data-i18n="navAbout">زموږ په اړه</a>
+   <a href="#features" data-i18n="navFeatures">ځانګړتیاوې</a>
+   <a href="#contact" data-i18n="navContact">اړیکه</a>
+   <a href="https://wa.me/93748806537" class="nav-order" data-i18n="navOrder">اوس فرمایش وکړئ ↗</a>
+   <div class="languages">
+    <button data-lang="ps" class="active">پښتو</button>
+    <button data-lang="fa">دری</button>
+    <button data-lang="en">EN</button>
+   </div>
+  </nav>
  </div>
 </header>
 
-<!-- SLIDER: directly below header -->
-<div class="spice-slider" aria-label="Noor Foods Gallery">
+<div class="spice-slider">
  <div class="slide active">
-  <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=1600&q=85" alt="Premium spices">
-  <div class="slide-caption"><h2 data-i18n="slide1Title">د خوندونو ځانګړې نړۍ</h2><p data-i18n="slide1Text">د نور فوډز له غوره مصالحو سره</p></div>
+  <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=1600&q=85" alt="Spices">
+  <div class="slide-caption">
+   <h2 data-i18n="slide1Title">د خوندونو ځانګړې نړۍ</h2>
+   <p data-i18n="slide1Text">د نور فوډز له غوره مصالحو سره</p>
+  </div>
  </div>
  <div class="slide">
-  <img src="https://images.unsplash.com/photo-1532336414038-cf19250c5757?auto=format&fit=crop&w=1600&q=85" alt="Quality food spices">
-  <div class="slide-caption"><h2 data-i18n="slide2Title">کیفیت او پاکوالی</h2><p data-i18n="slide2Text">ستاسو د کورنۍ لپاره غوره انتخاب</p></div>
+  <img src="https://images.unsplash.com/photo-1532336414038-cf19250c5757?auto=format&fit=crop&w=1600&q=85" alt="Spices">
+  <div class="slide-caption">
+   <h2 data-i18n="slide2Title">کیفیت او پاکوالی</h2>
+   <p data-i18n="slide2Text">ستاسو د کورنۍ لپاره غوره انتخاب</p>
+  </div>
  </div>
  <div class="slide">
-  <img src="https://images.unsplash.com/photo-1509358271058-acd22cc93898?auto=format&fit=crop&w=1600&q=85" alt="Natural spices">
-  <div class="slide-caption"><h2 data-i18n="slide3Title">اصلي خوند، غوره کیفیت</h2><p data-i18n="slide3Text">نور فوډز، ستاسو د باور وړ نوم</p></div>
+  <img src="https://images.unsplash.com/photo-1509358271058-acd22cc93898?auto=format&fit=crop&w=1600&q=85" alt="Spices">
+  <div class="slide-caption">
+   <h2 data-i18n="slide3Title">اصلي خوند، غوره کیفیت</h2>
+   <p data-i18n="slide3Text">نور فوډز، ستاسو د باور وړ نوم</p>
+  </div>
  </div>
- <button class="slider-arrow slider-prev" id="prevSlide" aria-label="Previous">‹</button>
- <button class="slider-arrow slider-next" id="nextSlide" aria-label="Next">›</button>
+ <button class="slider-arrow slider-prev" id="prevSlide">‹</button>
+ <button class="slider-arrow slider-next" id="nextSlide">›</button>
  <div class="slider-dots">
   <button class="slider-dot active" aria-label="Slide 1"></button>
   <button class="slider-dot" aria-label="Slide 2"></button>
@@ -312,7 +334,7 @@ footer{background:#160321;border-top:1px solid var(--border);padding:50px 0 20px
   <div class="hero-content">
    <div class="hero-label"><span></span><span data-i18n="heroLabel">د کیفیت او خوند ځانګړې نړۍ</span></div>
    <h1><span data-i18n="heroTitle1">د خوړو خوند</span><span class="gold-text" data-i18n="heroTitle2">له نور فوډز سره</span></h1>
-   <p data-i18n="heroText">نور فوډز تاسو ته د لوړ کیفیت مصالحې او خوراکي محصولات وړاندې کوي. زموږ موخه د کیفیت، پاکوالي او غوره خدمتونو له لارې ستاسو باور ترلاسه کول دي.</p>
+   <p data-i18n="heroText">نور فوډز تاسو ته د لوړ کیفیت مصالحې او خوراکي محصولات وړاندې کوي.</p>
    <div class="hero-buttons">
     <a href="#products" class="btn-primary" data-i18n="heroProducts">زموږ محصولات وګورئ ↙</a>
     <a href="#about" class="btn-outline" data-i18n="heroAbout">زموږ په اړه</a>
@@ -345,7 +367,7 @@ footer{background:#160321;border-top:1px solid var(--border);padding:50px 0 20px
    <span class="search-icon">⌕</span>
    <input type="search" id="productSearch" placeholder="محصول ولټوئ..." data-i18n-placeholder="searchPlaceholder">
   </div>
-  <div class="categories" id="categories">
+  <div class="categories">
    <button class="category-btn active" data-category="all" data-i18n="all">ټول محصولات</button>
    <button class="category-btn" data-category="spices" data-i18n="spices">مصالحې</button>
    <button class="category-btn" data-category="powder" data-i18n="powders">پوډر</button>
@@ -364,7 +386,7 @@ footer{background:#160321;border-top:1px solid var(--border);padding:50px 0 20px
   <div class="about-content">
    <div class="section-kicker" data-i18n="aboutKicker">زموږ په اړه</div>
    <h2 data-i18n="aboutTitle">نور فوډز؛ د خوند او کیفیت نوم</h2>
-   <p data-i18n="aboutText">نور فوډز د مصالحو او خوراکي محصولاتو د وړاندې کولو لپاره جوړ شوی برانډ دی. موږ هڅه کوو خپلو پېرودونکو ته باکیفیته محصولات او غوره خدمتونه وړاندې کړو.</p>
+   <p data-i18n="aboutText">نور فوډز د مصالحو او خوراکي محصولاتو د وړاندې کولو لپاره جوړ شوی برانډ دی.</p>
    <p data-i18n="aboutText2">زموږ موخه د پېرودونکو باور، رضایت او د محصولاتو کیفیت ته پاملرنه ده.</p>
    <div class="about-points">
     <div class="about-point"><span>✦</span><span data-i18n="point1">د کیفیت پاملرنه</span></div>
@@ -384,95 +406,102 @@ footer{background:#160321;border-top:1px solid var(--border);padding:50px 0 20px
    <p data-i18n="featuresText">موږ ستاسو د باور او رضایت لپاره هڅه کوو.</p>
   </div>
   <div class="features-grid">
-   <div class="feature-card"><div class="feature-icon">✧</div><h3 data-i18n="feature1">د کیفیت پاملرنه</h3><p data-i18n="feature1Text">موږ د محصولاتو کیفیت ته ځانګړې پاملرنه کوو.</p></div>
-   <div class="feature-card"><div class="feature-icon">♧</div><h3 data-i18n="feature2">د محصولاتو تنوع</h3><p data-i18n="feature2Text">د بېلابېلو مصالحو او خوراکي محصولاتو مجموعه.</p></div>
-   <div class="feature-card"><div class="feature-icon">♡</div><h3 data-i18n="feature3">د پېرودونکو خدمت</h3><p data-i18n="feature3Text">ستاسو پوښتنو او فرمایشونو ته د ځواب هڅه کوو.</p></div>
+   <div class="feature-card">
+    <div class="feature-icon">✦</div>
+    <h3 data-i18n="feature1">د کیفیت پاملرنه</h3>
+    <p data-i18n="feature1Text">موږ د محصولاتو کیفیت ته ځانګړې پاملرنه کوو.</p>
+   </div>
+   <div class="feature-card">
+    <div class="feature-icon">❖</div>
+    <h3 data-i18n="feature2">د محصولاتو تنوع</h3>
+    <p data-i18n="feature2Text">د بېلابېلو مصالحو او خوراکي محصولاتو مجموعه.</p>
+   </div>
+   <div class="feature-card">
+    <div class="feature-icon">♡</div>
+    <h3 data-i18n="feature3">د پېرودونکو خدمت</h3>
+    <p data-i18n="feature3Text">ستاسو پوښتنو او فرمایشونو ته د ځواب هڅه کوو.</p>
+   </div>
   </div>
  </div>
 </section>
 
 <section class="contact-section" id="contact">
- <div class="container contact-box">
-  <div><h2 data-i18n="contactTitle">غواړئ فرمایش وکړئ؟</h2><p data-i18n="contactText">د فرمایش او نورو معلوماتو لپاره له موږ سره اړیکه ونیسئ.</p></div>
-  <a class="whatsapp-btn" href="https://wa.me/93748806537" target="_blank" rel="noopener">☏ <span data-i18n="whatsapp">په WhatsApp اړیکه</span></a>
- </div>
+ <h2 data-i18n="contactTitle">غواړئ فرمایش وکړئ؟</h2>
+ <p data-i18n="contactText">د فرمایش او نورو معلوماتو لپاره له موږ سره اړیکه ونیسئ.</p>
+ <a class="whatsapp-btn" href="https://wa.me/93748806537" target="_blank" data-i18n="whatsapp">په WhatsApp اړیکه</a>
 </section>
 </main>
 
 <footer>
  <div class="container">
   <div class="footer-grid">
-   <div class="footer-brand">
-    <a href="#home" class="logo"><img src="noor-logo.png" alt="Noor Foods Logo"><div><div class="logo-name">NOOR FOODS</div><div class="logo-sub">نور فوډز</div></div></a>
+   <div>
+    <div class="logo"><img src="noor-logo.png" alt="Noor Foods"><h2>Noor Foods</h2></div>
     <p data-i18n="footerText">نور فوډز؛ د کیفیت، خوند او باور لپاره ستاسو انتخاب.</p>
    </div>
-   <div class="footer-col"><h3 data-i18n="quickLinks">چټک لینکونه</h3><a href="#home" data-i18n="navHome">کور</a><a href="#products" data-i18n="navProducts">محصولات</a><a href="#about" data-i18n="navAbout">زموږ په اړه</a></div>
-   <div class="footer-col"><h3 data-i18n="contactUs">اړیکه</h3><a href="https://wa.me/93748806537" target="_blank" rel="noopener">WhatsApp: +93 748 806 537</a></div>
+   <div>
+    <h3 data-i18n="quickLinks">چټک لینکونه</h3>
+    <p><a href="#home" data-i18n="navHome">کور</a></p>
+    <p><a href="#products" data-i18n="navProducts">محصولات</a></p>
+    <p><a href="#about" data-i18n="navAbout">زموږ په اړه</a></p>
+   </div>
+   <div>
+    <h3 data-i18n="contactUs">اړیکه</h3>
+    <p>WhatsApp: +93 748 806 537</p>
+    <a href="https://wa.me/93748806537" target="_blank">WhatsApp ↗</a>
+   </div>
   </div>
-  <div class="footer-bottom">© <span id="year"></span> NOOR FOODS. <span data-i18n="rights">ټول حقونه خوندي دي.</span></div>
+  <div class="footer-bottom">© <span id="year"></span> Noor Foods | <span data-i18n="rights">ټول حقونه خوندي دي.</span></div>
  </div>
 </footer>
-
-<div class="modal" id="productModal" role="dialog" aria-modal="true">
- <div class="modal-box">
-  <button class="close-modal" id="closeModal" aria-label="Close">×</button>
-  <img id="modalImage" src="" alt="Product">
-  <div class="modal-content">
-   <h2 id="modalTitle"></h2>
-   <p id="modalDescription"></p>
-   <div class="modal-price" id="modalPrice"></div>
-   <a class="whatsapp-btn" id="modalOrder" href="https://wa.me/93748806537" target="_blank" rel="noopener" data-i18n="orderProduct">د محصول فرمایش</a>
-  </div>
- </div>
-</div>
 
 <script>
 const whatsappNumber="93748806537";
 
 const products=[
- {id:1,name:"تور مرچ",en:"Black Pepper",category:"spices",image:"https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=700&q=80",description:"د خوړو لپاره خوندوره او مشهوره مصالحه."},
- {id:2,name:"لاچي",en:"Cardamom",category:"spices",image:"https://images.unsplash.com/photo-1532336414038-cf19250c5757?auto=format&fit=crop&w=700&q=80",description:"د خوړو او څښاک لپاره خوشبویه مصالحه."},
- {id:3,name:"لونګ",en:"Cloves",category:"spices",image:"https://images.unsplash.com/photo-1509358271058-acd22cc93898?auto=format&fit=crop&w=700&q=80",description:"خوشبویه او ځانګړې مصالحه."},
- {id:4,name:"سره مرچ",en:"Red Chili",category:"spices",image:"https://images.unsplash.com/photo-1588252303782-cb80119abd6d?auto=format&fit=crop&w=700&q=80",description:"د خوړو د خوند لپاره سره مرچ."},
- {id:5,name:"چکن پوډر",en:"Chicken Powder",category:"powder",image:"https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=700&q=80",description:"د چرګانو د خوړو لپاره مصالحوي پوډر."},
- {id:6,name:"دارچیني",en:"Cinnamon",category:"spices",image:"https://images.unsplash.com/photo-1509358271058-acd22cc93898?auto=format&fit=crop&w=700&q=80",description:"د خوړو او خوږو لپاره خوشبویه مصالحه."},
- {id:7,name:"زیره",en:"Cumin",category:"spices",image:"https://images.unsplash.com/photo-1532336414038-cf19250c5757?auto=format&fit=crop&w=700&q=80",description:"د ورځنیو خوړو لپاره مشهوره مصالحه."},
- {id:8,name:"سېټریک اسید",en:"Citric Acid",category:"other",image:"https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&w=700&q=80",description:"د خوراکي استعمال لپاره سېټریک اسید."},
- {id:9,name:"کورکمن",en:"Turmeric",category:"powder",image:"https://images.unsplash.com/photo-1615485500704-8e990f9900f3?auto=format&fit=crop&w=700&q=80",description:"د خوړو لپاره ژېړ رنګ او مصالحه."},
- {id:10,name:"ادرک پوډر",en:"Ginger Powder",category:"powder",image:"https://images.unsplash.com/photo-1615485500834-bc10199bc727?auto=format&fit=crop&w=700&q=80",description:"د خوړو لپاره د ادرک پوډر."}
+{id:"tur-march",name:"تور مرچ",en:"Black Pepper",category:"spices",image:"https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=700&q=80",description:"د خوړو لپاره خوندوره او مشهوره مصالحه."},
+{id:"elaichi",name:"لاچي",en:"Cardamom",category:"spices",image:"https://images.unsplash.com/photo-1532336414038-cf19250c5757?auto=format&fit=crop&w=700&q=80",description:"د خوړو او څښاک لپاره خوشبویه مصالحه."},
+{id:"long",name:"لونګ",en:"Cloves",category:"spices",image:"https://images.unsplash.com/photo-1509358271058-acd22cc93898?auto=format&fit=crop&w=700&q=80",description:"خوشبویه او ځانګړې مصالحه."},
+{id:"red-chili",name:"سره مرچ",en:"Red Chili",category:"spices",image:"https://images.unsplash.com/photo-1588252303782-cb80119abd6d?auto=format&fit=crop&w=700&q=80",description:"د خوړو د خوند لپاره سره مرچ."},
+{id:"chicken-powder",name:"چکن پوډر",en:"Chicken Powder",category:"powder",image:"https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=700&q=80",description:"د چرګانو د خوړو لپاره مصالحوي پوډر."},
+{id:"cinnamon",name:"دارچیني",en:"Cinnamon",category:"spices",image:"https://images.unsplash.com/photo-1509358271058-acd22cc93898?auto=format&fit=crop&w=700&q=80",description:"د خوړو او خوږو لپاره خوشبویه مصالحه."},
+{id:"cumin",name:"زیره",en:"Cumin",category:"spices",image:"https://images.unsplash.com/photo-1532336414038-cf19250c5757?auto=format&fit=crop&w=700&q=80",description:"د ورځنیو خوړو لپاره مشهوره مصالحه."},
+{id:"citric-acid",name:"سېټریک اسید",en:"Citric Acid",category:"other",image:"https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&w=700&q=80",description:"د خوراکي استعمال لپاره سېټریک اسید."},
+{id:"turmeric",name:"کورکمن",en:"Turmeric",category:"powder",image:"https://images.unsplash.com/photo-1615485500704-8e990f9900f3?auto=format&fit=crop&w=700&q=80",description:"د خوړو لپاره ژېړ رنګ او مصالحه."},
+{id:"ginger-powder",name:"ادرک پوډر",en:"Ginger Powder",category:"powder",image:"https://images.unsplash.com/photo-1615485500834-bc10199bc727?auto=format&fit=crop&w=700&q=80",description:"د خوړو لپاره د ادرک پوډر."}
 ];
 
 const translations={
- ps:{
- navHome:"کور",navProducts:"محصولات",navAbout:"زموږ په اړه",navFeatures:"ځانګړتیاوې",navContact:"اړیکه",navOrder:"اوس فرمایش وکړئ ↗",chooseLanguage:"🌐 ژبه انتخاب کړئ",
- slide1Title:"د خوندونو ځانګړې نړۍ",slide1Text:"د نور فوډز له غوره مصالحو سره",slide2Title:"کیفیت او پاکوالی",slide2Text:"ستاسو د کورنۍ لپاره غوره انتخاب",slide3Title:"اصلي خوند، غوره کیفیت",slide3Text:"نور فوډز، ستاسو د باور وړ نوم",
- heroLabel:"د کیفیت او خوند ځانګړې نړۍ",heroTitle1:"د خوړو خوند",heroTitle2:"له نور فوډز سره",heroText:"نور فوډز تاسو ته د لوړ کیفیت مصالحې او خوراکي محصولات وړاندې کوي. زموږ موخه د کیفیت، پاکوالي او غوره خدمتونو له لارې ستاسو باور ترلاسه کول دي.",heroProducts:"زموږ محصولات وګورئ ↙",heroAbout:"زموږ په اړه",
- trust1:"لوړ کیفیت",trust1s:"د غوره محصولاتو انتخاب",trust2:"پاک او معیاري",trust2s:"کیفیت زموږ لومړیتوب دی",trust3:"د باور وړ خدمت",trust3s:"ستاسو رضایت زموږ موخه ده",
- productsKicker:"زموږ محصولات",productsTitle:"د نور فوډز ځانګړي محصولات",productsText:"زموږ د مصالحو او خوراکي محصولاتو مجموعه وګورئ.",searchPlaceholder:"محصول ولټوئ...",all:"ټول محصولات",spices:"مصالحې",powders:"پوډر",other:"نور محصولات",details:"نور معلومات",price:"د قیمت لپاره اړیکه ونیسئ",noProducts:"ستاسو د لټون نتیجه ونه موندل شوه.",
- aboutBadge:"کیفیت زموږ ویاړ دی",aboutKicker:"زموږ په اړه",aboutTitle:"نور فوډز؛ د خوند او کیفیت نوم",aboutText:"نور فوډز د مصالحو او خوراکي محصولاتو د وړاندې کولو لپاره جوړ شوی برانډ دی. موږ هڅه کوو خپلو پېرودونکو ته باکیفیته محصولات او غوره خدمتونه وړاندې کړو.",aboutText2:"زموږ موخه د پېرودونکو باور، رضایت او د محصولاتو کیفیت ته پاملرنه ده.",point1:"د کیفیت پاملرنه",point2:"د پېرودونکو رضایت",point3:"د محصولاتو تنوع",point4:"ښه خدمتونه",
- featuresKicker:"ولې نور فوډز؟",featuresTitle:"زموږ ځانګړتیاوې",featuresText:"موږ ستاسو د باور او رضایت لپاره هڅه کوو.",feature1:"د کیفیت پاملرنه",feature1Text:"موږ د محصولاتو کیفیت ته ځانګړې پاملرنه کوو.",feature2:"د محصولاتو تنوع",feature2Text:"د بېلابېلو مصالحو او خوراکي محصولاتو مجموعه.",feature3:"د پېرودونکو خدمت",feature3Text:"ستاسو پوښتنو او فرمایشونو ته د ځواب هڅه کوو.",
- contactTitle:"غواړئ فرمایش وکړئ؟",contactText:"د فرمایش او نورو معلوماتو لپاره له موږ سره اړیکه ونیسئ.",whatsapp:"په WhatsApp اړیکه",footerText:"نور فوډز؛ د کیفیت، خوند او باور لپاره ستاسو انتخاب.",quickLinks:"چټک لینکونه",contactUs:"اړیکه",rights:"ټول حقونه خوندي دي.",orderProduct:"د محصول فرمایش",modalPrice:"د قیمت لپاره له موږ سره اړیکه ونیسئ"
- },
- fa:{
- navHome:"خانه",navProducts:"محصولات",navAbout:"درباره ما",navFeatures:"ویژگی‌ها",navContact:"تماس",navOrder:"اکنون سفارش دهید ↗",chooseLanguage:"🌐 زبان را انتخاب کنید",
- slide1Title:"دنیای ویژه طعم‌ها",slide1Text:"با ادویه‌جات برتر نور فودز",slide2Title:"کیفیت و پاکی",slide2Text:"انتخاب بهتر برای خانواده شما",slide3Title:"طعم اصیل، کیفیت برتر",slide3Text:"نور فودز، نام قابل اعتماد شما",
- heroLabel:"دنیای ویژه کیفیت و طعم",heroTitle1:"طعم غذا",heroTitle2:"با نور فودز",heroText:"نور فودز ادویه‌جات و محصولات غذایی باکیفیت را به شما عرضه می‌کند. هدف ما جلب اعتماد شما از راه کیفیت و خدمات بهتر است.",heroProducts:"مشاهده محصولات ↙",heroAbout:"درباره ما",
- trust1:"کیفیت عالی",trust1s:"انتخاب محصولات برتر",trust2:"پاک و معیاری",trust2s:"کیفیت اولویت ماست",trust3:"خدمات قابل اعتماد",trust3s:"رضایت شما هدف ماست",
- productsKicker:"محصولات ما",productsTitle:"محصولات ویژه نور فودز",productsText:"مجموعه ادویه‌جات و محصولات غذایی ما را ببینید.",searchPlaceholder:"جستجوی محصول...",all:"همه محصولات",spices:"ادویه‌جات",powders:"پودرها",other:"محصولات دیگر",details:"جزئیات بیشتر",price:"برای قیمت تماس بگیرید",noProducts:"نتیجه‌ای برای جستجوی شما پیدا نشد.",
- aboutBadge:"کیفیت افتخار ماست",aboutKicker:"درباره ما",aboutTitle:"نور فودز؛ نام طعم و کیفیت",aboutText:"نور فودز برندی برای عرضه ادویه‌جات و محصولات غذایی است. تلاش می‌کنیم محصولات باکیفیت و خدمات بهتر ارائه کنیم.",aboutText2:"هدف ما جلب اعتماد مشتریان و توجه به کیفیت محصولات است.",point1:"توجه به کیفیت",point2:"رضایت مشتریان",point3:"تنوع محصولات",point4:"خدمات خوب",
- featuresKicker:"چرا نور فودز؟",featuresTitle:"ویژگی‌های ما",featuresText:"برای اعتماد و رضایت شما تلاش می‌کنیم.",feature1:"توجه به کیفیت",feature1Text:"ما به کیفیت محصولات توجه ویژه داریم.",feature2:"تنوع محصولات",feature2Text:"مجموعه‌ای از ادویه‌جات و محصولات غذایی.",feature3:"خدمات مشتریان",feature3Text:"تلاش می‌کنیم به پرسش‌ها و سفارش‌های شما پاسخ دهیم.",
- contactTitle:"می‌خواهید سفارش دهید؟",contactText:"برای سفارش و معلومات بیشتر با ما تماس بگیرید.",whatsapp:"تماس از طریق واتساپ",footerText:"نور فودز؛ انتخاب شما برای کیفیت، طعم و اعتماد.",quickLinks:"پیوندهای سریع",contactUs:"تماس",rights:"تمام حقوق محفوظ است.",orderProduct:"سفارش محصول",modalPrice:"برای قیمت با ما تماس بگیرید"
- },
- en:{
- navHome:"Home",navProducts:"Products",navAbout:"About Us",navFeatures:"Features",navContact:"Contact",navOrder:"Order Now ↗",chooseLanguage:"🌐 Choose Language",
- slide1Title:"A World of Wonderful Flavors",slide1Text:"Discover the spices of Noor Foods",slide2Title:"Quality and Purity",slide2Text:"A better choice for your family",slide3Title:"Authentic Taste, Great Quality",slide3Text:"Noor Foods, a name you can trust",
- heroLabel:"A World of Quality and Taste",heroTitle1:"The Taste of Food",heroTitle2:"With Noor Foods",heroText:"Noor Foods offers quality spices and food products. Our goal is to earn your trust through quality, care and better service.",heroProducts:"Explore Products ↙",heroAbout:"About Us",
- trust1:"Premium Quality",trust1s:"A selection of great products",trust2:"Clean and Standard",trust2s:"Quality is our priority",trust3:"Trusted Service",trust3s:"Your satisfaction matters",
- productsKicker:"OUR PRODUCTS",productsTitle:"Featured Noor Foods Products",productsText:"Explore our collection of spices and food products.",searchPlaceholder:"Search products...",all:"All Products",spices:"Spices",powders:"Powders",other:"Other Products",details:"More Details",price:"Contact us for price",noProducts:"No products found.",
- aboutBadge:"Quality is our pride",aboutKicker:"ABOUT US",aboutTitle:"Noor Foods: A Name of Taste and Quality",aboutText:"Noor Foods is a brand offering spices and food products. We aim to provide quality products and better service.",aboutText2:"Our goal is to earn customer trust and focus on product quality.",point1:"Quality Focus",point2:"Customer Satisfaction",point3:"Product Variety",point4:"Good Service",
- featuresKicker:"WHY NOOR FOODS?",featuresTitle:"Our Features",featuresText:"We work for your trust and satisfaction.",feature1:"Quality Focus",feature1Text:"We pay special attention to product quality.",feature2:"Product Variety",feature2Text:"A collection of different spices and food products.",feature3:"Customer Service",feature3Text:"We try to answer your questions and orders.",
- contactTitle:"Ready to Order?",contactText:"Contact us for orders and more information.",whatsapp:"Contact on WhatsApp",footerText:"Noor Foods: Your choice for quality, taste and trust.",quickLinks:"Quick Links",contactUs:"Contact",rights:"All rights reserved.",orderProduct:"Order Product",modalPrice:"Contact us for pricing"
- }
+ps:{
+navHome:"کور",navProducts:"محصولات",navAbout:"زموږ په اړه",navFeatures:"ځانګړتیاوې",navContact:"اړیکه",navOrder:"اوس فرمایش وکړئ ↗",
+slide1Title:"د خوندونو ځانګړې نړۍ",slide1Text:"د نور فوډز له غوره مصالحو سره",slide2Title:"کیفیت او پاکوالی",slide2Text:"ستاسو د کورنۍ لپاره غوره انتخاب",slide3Title:"اصلي خوند، غوره کیفیت",slide3Text:"نور فوډز، ستاسو د باور وړ نوم",
+heroLabel:"د کیفیت او خوند ځانګړې نړۍ",heroTitle1:"د خوړو خوند",heroTitle2:"له نور فوډز سره",heroText:"نور فوډز تاسو ته د لوړ کیفیت مصالحې او خوراکي محصولات وړاندې کوي. زموږ موخه د کیفیت، پاکوالي او غوره خدمتونو له لارې ستاسو باور ترلاسه کول دي.",heroProducts:"زموږ محصولات وګورئ ↙",heroAbout:"زموږ په اړه",
+trust1:"لوړ کیفیت",trust1s:"د غوره محصولاتو انتخاب",trust2:"پاک او معیاري",trust2s:"کیفیت زموږ لومړیتوب دی",trust3:"د باور وړ خدمت",trust3s:"ستاسو رضایت زموږ موخه ده",
+productsKicker:"زموږ محصولات",productsTitle:"د نور فوډز ځانګړي محصولات",productsText:"زموږ د مصالحو او خوراکي محصولاتو مجموعه وګورئ.",searchPlaceholder:"محصول ولټوئ...",all:"ټول محصولات",spices:"مصالحې",powders:"پوډر",other:"نور محصولات",details:"نور معلومات",price:"د قیمت لپاره اړیکه ونیسئ",noProducts:"ستاسو د لټون نتیجه ونه موندل شوه.",
+aboutBadge:"کیفیت زموږ ویاړ دی",aboutKicker:"زموږ په اړه",aboutTitle:"نور فوډز؛ د خوند او کیفیت نوم",aboutText:"نور فوډز د مصالحو او خوراکي محصولاتو د وړاندې کولو لپاره جوړ شوی برانډ دی. موږ هڅه کوو خپلو پېرودونکو ته باکیفیته محصولات او غوره خدمتونه وړاندې کړو.",aboutText2:"زموږ موخه د پېرودونکو باور، رضایت او د محصولاتو کیفیت ته پاملرنه ده.",point1:"د کیفیت پاملرنه",point2:"د پېرودونکو رضایت",point3:"د محصولاتو تنوع",point4:"ښه خدمتونه",
+featuresKicker:"ولې نور فوډز؟",featuresTitle:"زموږ ځانګړتیاوې",featuresText:"موږ ستاسو د باور او رضایت لپاره هڅه کوو.",feature1:"د کیفیت پاملرنه",feature1Text:"موږ د محصولاتو کیفیت ته ځانګړې پاملرنه کوو.",feature2:"د محصولاتو تنوع",feature2Text:"د بېلابېلو مصالحو او خوراکي محصولاتو مجموعه.",feature3:"د پېرودونکو خدمت",feature3Text:"ستاسو پوښتنو او فرمایشونو ته د ځواب هڅه کوو.",
+contactTitle:"غواړئ فرمایش وکړئ؟",contactText:"د فرمایش او نورو معلوماتو لپاره له موږ سره اړیکه ونیسئ.",whatsapp:"په WhatsApp اړیکه",footerText:"نور فوډز؛ د کیفیت، خوند او باور لپاره ستاسو انتخاب.",quickLinks:"چټک لینکونه",contactUs:"اړیکه",rights:"ټول حقونه خوندي دي."
+},
+fa:{
+navHome:"خانه",navProducts:"محصولات",navAbout:"درباره ما",navFeatures:"ویژگی‌ها",navContact:"تماس",navOrder:"اکنون سفارش دهید ↗",
+slide1Title:"دنیای ویژه طعم‌ها",slide1Text:"با ادویه‌جات برتر نور فودز",slide2Title:"کیفیت و پاکی",slide2Text:"انتخاب بهتر برای خانواده شما",slide3Title:"طعم اصیل، کیفیت برتر",slide3Text:"نور فودز، نام قابل اعتماد شما",
+heroLabel:"دنیای ویژه کیفیت و طعم",heroTitle1:"طعم غذا",heroTitle2:"با نور فودز",heroText:"نور فودز ادویه‌جات و محصولات غذایی باکیفیت را به شما عرضه می‌کند. هدف ما جلب اعتماد شما از راه کیفیت و خدمات بهتر است.",heroProducts:"مشاهده محصولات ↙",heroAbout:"درباره ما",
+trust1:"کیفیت عالی",trust1s:"انتخاب محصولات برتر",trust2:"پاک و معیاری",trust2s:"کیفیت اولویت ماست",trust3:"خدمات قابل اعتماد",trust3s:"رضایت شما هدف ماست",
+productsKicker:"محصولات ما",productsTitle:"محصولات ویژه نور فودز",productsText:"مجموعه ادویه‌جات و محصولات غذایی ما را ببینید.",searchPlaceholder:"جستجوی محصول...",all:"همه محصولات",spices:"ادویه‌جات",powders:"پودرها",other:"محصولات دیگر",details:"جزئیات بیشتر",price:"برای قیمت تماس بگیرید",noProducts:"نتیجه‌ای برای جستجوی شما پیدا نشد.",
+aboutBadge:"کیفیت افتخار ماست",aboutKicker:"درباره ما",aboutTitle:"نور فودز؛ نام طعم و کیفیت",aboutText:"نور فودز برندی برای عرضه ادویه‌جات و محصولات غذایی است. تلاش می‌کنیم محصولات باکیفیت و خدمات بهتر ارائه کنیم.",aboutText2:"هدف ما جلب اعتماد مشتریان و توجه به کیفیت محصولات است.",point1:"توجه به کیفیت",point2:"رضایت مشتریان",point3:"تنوع محصولات",point4:"خدمات خوب",
+featuresKicker:"چرا نور فودز؟",featuresTitle:"ویژگی‌های ما",featuresText:"برای اعتماد و رضایت شما تلاش می‌کنیم.",feature1:"توجه به کیفیت",feature1Text:"ما به کیفیت محصولات توجه ویژه داریم.",feature2:"تنوع محصولات",feature2Text:"مجموعه‌ای از ادویه‌جات و محصولات غذایی.",feature3:"خدمات مشتریان",feature3Text:"تلاش می‌کنیم به پرسش‌ها و سفارش‌های شما پاسخ دهیم.",
+contactTitle:"می‌خواهید سفارش دهید؟",contactText:"برای سفارش و معلومات بیشتر با ما تماس بگیرید.",whatsapp:"تماس از طریق واتساپ",footerText:"نور فودز؛ انتخاب شما برای کیفیت، طعم و اعتماد.",quickLinks:"پیوندهای سریع",contactUs:"تماس",rights:"تمام حقوق محفوظ است."
+},
+en:{
+navHome:"Home",navProducts:"Products",navAbout:"About Us",navFeatures:"Features",navContact:"Contact",navOrder:"Order Now ↗",
+slide1Title:"A World of Wonderful Flavors",slide1Text:"Discover the spices of Noor Foods",slide2Title:"Quality and Purity",slide2Text:"A better choice for your family",slide3Title:"Authentic Taste, Great Quality",slide3Text:"Noor Foods, a name you can trust",
+heroLabel:"A World of Quality and Taste",heroTitle1:"The Taste of Food",heroTitle2:"With Noor Foods",heroText:"Noor Foods offers quality spices and food products. Our goal is to earn your trust through quality, care and better service.",heroProducts:"Explore Products ↙",heroAbout:"About Us",
+trust1:"Premium Quality",trust1s:"A selection of great products",trust2:"Clean and Standard",trust2s:"Quality is our priority",trust3:"Trusted Service",trust3s:"Your satisfaction matters",
+productsKicker:"OUR PRODUCTS",productsTitle:"Featured Noor Foods Products",productsText:"Explore our collection of spices and food products.",searchPlaceholder:"Search products...",all:"All Products",spices:"Spices",powders:"Powders",other:"Other Products",details:"More Details",price:"Contact us for price",noProducts:"No products found.",
+aboutBadge:"Quality is our pride",aboutKicker:"ABOUT US",aboutTitle:"Noor Foods: A Name of Taste and Quality",aboutText:"Noor Foods is a brand offering spices and food products. We aim to provide quality products and better service.",aboutText2:"Our goal is to earn customer trust and focus on product quality.",point1:"Quality Focus",point2:"Customer Satisfaction",point3:"Product Variety",point4:"Good Service",
+featuresKicker:"WHY NOOR FOODS?",featuresTitle:"Our Features",featuresText:"We work for your trust and satisfaction.",feature1:"Quality Focus",feature1Text:"We pay special attention to product quality.",feature2:"Product Variety",feature2Text:"A collection of different spices and food products.",feature3:"Customer Service",feature3Text:"We try to answer your questions and orders.",
+contactTitle:"Ready to Order?",contactText:"Contact us for orders and more information.",whatsapp:"Contact on WhatsApp",footerText:"Noor Foods: Your choice for quality, taste and trust.",quickLinks:"Quick Links",contactUs:"Contact",rights:"All rights reserved."
+}
 };
 
 let currentLang="ps";
@@ -490,7 +519,9 @@ function translatePage(lang){
   const key=el.dataset.i18nPlaceholder;
   if(translations[lang][key])el.placeholder=translations[lang][key];
  });
- document.querySelectorAll("[data-lang]").forEach(btn=>btn.classList.toggle("active",btn.dataset.lang===lang));
+ document.querySelectorAll("[data-lang]").forEach(btn=>{
+  btn.classList.toggle("active",btn.dataset.lang===lang);
+ });
  renderProducts();
 }
 
@@ -504,7 +535,7 @@ function renderProducts(){
  });
  grid.innerHTML="";
  if(!list.length){
-  grid.innerHTML=`<div class="no-products">${translations[currentLang].noProducts}</div>`;
+  grid.innerHTML='<div class="no-products">'+translations[currentLang].noProducts+'</div>';
   return;
  }
  list.forEach(p=>{
@@ -515,7 +546,7 @@ function renderProducts(){
   card.innerHTML=`
    <div class="product-image">
     <img src="${p.image}" alt="${title}" loading="lazy">
-    <span class="product-number">NO. ${String(p.id).padStart(2,"0")}</span>
+    <span class="product-number">NO. ${String(products.indexOf(p)+1).padStart(2,"0")}</span>
    </div>
    <div class="product-info">
     <h3>${title}</h3>
@@ -525,24 +556,15 @@ function renderProducts(){
      <button class="details-btn" type="button">${translations[currentLang].details}</button>
     </div>
    </div>`;
-  card.querySelector("button").addEventListener("click",()=>openProduct(p));
+  card.querySelector(".details-btn").addEventListener("click",()=>{
+   window.location.href="product.html?id="+encodeURIComponent(p.id);
+  });
   grid.appendChild(card);
  });
 }
 
-function openProduct(p){
- const title=currentLang==="en"?p.en:p.name;
- document.getElementById("modalImage").src=p.image;
- document.getElementById("modalImage").alt=title;
- document.getElementById("modalTitle").textContent=title;
- document.getElementById("modalDescription").textContent=currentLang==="en"?p.en+" - Noor Foods product.":p.description;
- document.getElementById("modalPrice").textContent=translations[currentLang].modalPrice;
- document.getElementById("modalOrder").href="https://wa.me/"+whatsappNumber+"?text="+encodeURIComponent("سلام، زه د "+title+" په اړه معلومات او فرمایش غواړم.");
- document.getElementById("productModal").classList.add("show");
-}
-function closeProduct(){document.getElementById("productModal").classList.remove("show")}
-
 document.getElementById("productSearch").addEventListener("input",renderProducts);
+
 document.querySelectorAll(".category-btn").forEach(btn=>{
  btn.addEventListener("click",()=>{
   activeCategory=btn.dataset.category;
@@ -550,28 +572,29 @@ document.querySelectorAll(".category-btn").forEach(btn=>{
   renderProducts();
  });
 });
-document.querySelectorAll("[data-lang]").forEach(btn=>btn.addEventListener("click",()=>translatePage(btn.dataset.lang)));
+
+document.querySelectorAll("[data-lang]").forEach(btn=>{
+ btn.addEventListener("click",()=>translatePage(btn.dataset.lang));
+});
 
 const menuBtn=document.getElementById("menuBtn");
 const navLinks=document.getElementById("navLinks");
+
 menuBtn.addEventListener("click",()=>{
  const open=navLinks.classList.toggle("open");
  menuBtn.setAttribute("aria-expanded",String(open));
  menuBtn.textContent=open?"×":"☰";
 });
-navLinks.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{
- navLinks.classList.remove("open");
- menuBtn.setAttribute("aria-expanded","false");
- menuBtn.textContent="☰";
-}));
 
-document.getElementById("closeModal").addEventListener("click",closeProduct);
-document.getElementById("productModal").addEventListener("click",e=>{
- if(e.target.id==="productModal")closeProduct();
+navLinks.querySelectorAll("a").forEach(a=>{
+ a.addEventListener("click",()=>{
+  navLinks.classList.remove("open");
+  menuBtn.setAttribute("aria-expanded","false");
+  menuBtn.textContent="☰";
+ });
 });
-document.addEventListener("keydown",e=>{if(e.key==="Escape")closeProduct()});
 
-/* IMAGE SLIDER */
+/* SLIDER */
 const slides=[...document.querySelectorAll(".slide")];
 const dots=[...document.querySelectorAll(".slider-dot")];
 let slideIndex=0;
@@ -590,10 +613,16 @@ function resetSliderTimer(){
  clearInterval(slideTimer);
  slideTimer=setInterval(nextSlide,4000);
 }
-document.getElementById("nextSlide").addEventListener("click",()=>{nextSlide();resetSliderTimer()});
-document.getElementById("prevSlide").addEventListener("click",()=>{previousSlide();resetSliderTimer()});
-dots.forEach((dot,index)=>dot.addEventListener("click",()=>{showSlide(index);resetSliderTimer()}));
-resetSliderTimer();
+
+document.getElementById("nextSlide").addEventListener("click",()=>{
+ nextSlide();resetSliderTimer();
+});
+document.getElementById("prevSlide").addEventListener("click",()=>{
+ previousSlide();resetSliderTimer();
+});
+dots.forEach((dot,index)=>dot.addEventListener("click",()=>{
+ showSlide(index);resetSliderTimer();
+}));
 
 document.getElementById("year").textContent=new Date().getFullYear();
 renderProducts();
