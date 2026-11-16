@@ -1,0 +1,230 @@
+
+<!DOCTYPE html>
+<html lang="ps" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>محصول | Noor Foods</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;
+ font-family:Arial,sans-serif;
+ background:linear-gradient(135deg,#21052F,#35164F,#542477);
+ color:#FFF0D0;
+}
+header{
+ padding:16px 7%;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ background:#21052F;
+ border-bottom:1px solid #D9A52D55;
+}
+.logo{display:flex;align-items:center;gap:12px}
+.logo img{width:52px;height:52px;object-fit:contain}
+.logo h2{color:#F5D77C;margin:0;font-size:22px}
+header a{
+ color:#F5D77C;
+ text-decoration:none;
+ font-weight:bold;
+}
+.container{
+ max-width:1100px;
+ margin:55px auto;
+ padding:20px;
+}
+.product{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:35px;
+ align-items:center;
+ background:linear-gradient(145deg,#542477,#35164F);
+ border:1px solid #D9A52D66;
+ border-radius:25px;
+ padding:30px;
+ box-shadow:0 15px 45px #0005;
+}
+.product-image{
+ background:#fff0d0;
+ border-radius:20px;
+ overflow:hidden;
+ min-height:350px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+}
+.product-image img{
+ width:100%;
+ height:350px;
+ object-fit:cover;
+}
+.details h1{
+ color:#F5D77C;
+ font-size:34px;
+ margin-top:0;
+}
+.details p{
+ line-height:2;
+ color:#FFF0D0;
+ font-size:16px;
+}
+.price-box{
+ background:#21052F;
+ padding:17px;
+ border-radius:14px;
+ border:1px solid #D9A52D55;
+ margin:20px 0;
+}
+.price-box p{margin:8px 0}
+.price-box strong{color:#F5D77C}
+.order-btn{
+ display:block;
+ text-align:center;
+ text-decoration:none;
+ background:linear-gradient(90deg,#D9A52D,#F5D77C);
+ color:#21052F;
+ padding:15px;
+ border-radius:12px;
+ font-weight:bold;
+ font-size:17px;
+ transition:.3s;
+}
+.order-btn:hover{transform:translateY(-3px);box-shadow:0 8px 20px #0005}
+.back-btn{
+ display:inline-block;
+ margin-bottom:20px;
+ color:#F5D77C;
+ text-decoration:none;
+}
+footer{
+ text-align:center;
+ padding:25px;
+ background:#21052F;
+ color:#F5D77C;
+ margin-top:60px;
+}
+@media(max-width:700px){
+ .product{grid-template-columns:1fr;padding:17px}
+ .product-image,.product-image img{height:280px;min-height:280px}
+ .details h1{font-size:27px}
+ .container{margin:25px auto}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+ <div class="logo">
+  <img src="noor-logo.png" alt="Noor Foods Logo">
+  <h2>Noor Foods</h2>
+ </div>
+ <a href="index.html">اصلي پاڼې ته ←</a>
+</header>
+
+<div class="container">
+ <a class="back-btn" href="index.html">← بېرته محصولاتو ته</a>
+
+ <div class="product">
+  <div class="product-image">
+   <img id="productImage" src="" alt="د محصول عکس">
+  </div>
+
+  <div class="details">
+   <h1 id="productName">محصول</h1>
+   <p id="productDescription"></p>
+
+   <div class="price-box">
+    <p>پرچون نرخ: <strong>د نرخ لپاره اړیکه ونیسئ</strong></p>
+    <p>عمده نرخ: <strong>د نرخ لپاره اړیکه ونیسئ</strong></p>
+    <p>د لږ تر لږه عمده فرمایش اندازه: <strong>د معلوماتو لپاره اړیکه ونیسئ</strong></p>
+   </div>
+
+   <a id="orderButton" class="order-btn" href="#" target="_blank">
+    د WhatsApp له لارې فرمایش
+   </a>
+  </div>
+ </div>
+</div>
+
+<footer>
+ © 2026 Noor Foods | ټول حقوق خوندي دي
+</footer>
+
+<script>
+const products = {
+ "tur-march":{
+  name:"تور مرچ",
+  description:"د خوړو لپاره خوندور او خوشبویه تور مرچ. د پخلنځي د بېلابېلو خوړو لپاره مناسب.",
+  image:"https://images.unsplash.com/photo-1599909533730-f9d5b7e7e6a1?w=800"
+ },
+ "elaichi":{
+  name:"لاچي",
+  description:"خوشبویه لاچي د چای، خوږو او بېلابېلو خوړو لپاره.",
+  image:"https://images.unsplash.com/photo-1615485500704-8e990f9900f5?w=800"
+ },
+ "long":{
+  name:"لونګ",
+  description:"طبیعي خوشبویه لونګ د خوړو او چای لپاره.",
+  image:"https://images.unsplash.com/photo-1603905179139-d6c4e4a8a5b4?w=800"
+ },
+ "red-chili":{
+  name:"سره مرچ",
+  description:"سره مرچ د خوړو د خوند او رنګ لپاره.",
+  image:"https://images.unsplash.com/photo-1588252303782-cb80119abd6d?w=800"
+ },
+ "chicken-powder":{
+  name:"چکن پوډر",
+  description:"د چرګانو او نورو خوړو لپاره د مصالحې پوډر.",
+  image:"https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=800"
+ },
+ "cinnamon":{
+  name:"دارچیني",
+  description:"خوشبویه دارچیني د خوړو، چای او خوږو لپاره.",
+  image:"https://images.unsplash.com/photo-1603905179139-d6c4e4a8a5b4?w=800"
+ },
+ "cumin":{
+  name:"زیره",
+  description:"زیره د ورځنیو خوړو لپاره یوه مشهوره مصالحه ده.",
+  image:"https://images.unsplash.com/photo-1599909533730-f9d5b7e7e6a1?w=800"
+ },
+ "citric-acid":{
+  name:"سېټریک اسید",
+  description:"د خوراکي استعمال لپاره سېټریک اسید.",
+  image:"https://images.unsplash.com/photo-1518843875459-f738682238a6?w=800"
+ },
+ "turmeric":{
+  name:"کورکمن",
+  description:"کورکمن د خوړو لپاره د رنګ او خوند یوه مشهوره مصالحه ده.",
+  image:"https://images.unsplash.com/photo-1615485500704-8e990f9900f5?w=800"
+ },
+ "ginger-powder":{
+  name:"ادرک پوډر",
+  description:"ادرک پوډر د خوړو او چای لپاره خوشبویه مصالحه ده.",
+  image:"https://images.unsplash.com/photo-1615485500704-8e990f9900f5?w=800"
+ }
+};
+
+const id = new URLSearchParams(window.location.search).get("id");
+const product = products[id];
+
+if(product){
+ document.getElementById("productName").textContent=product.name;
+ document.getElementById("productDescription").textContent=product.description;
+ document.getElementById("productImage").src=product.image;
+
+ const message="سلام Noor Foods! زه د "+product.name+" په اړه معلومات او نرخ غواړم.";
+ document.getElementById("orderButton").href=
+  "https://wa.me/93748806537?text="+encodeURIComponent(message);
+
+ document.title=product.name+" | Noor Foods";
+}else{
+ document.querySelector(".product").innerHTML=
+  "<h2 style='text-align:center;grid-column:1/-1;color:#F5D77C'>دا محصول ونه موندل شو!</h2>";
+}
+</script>
+
+</body>
+</html>
