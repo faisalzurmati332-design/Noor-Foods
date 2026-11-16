@@ -848,7 +848,22 @@ footer{
 }
 
 @media(max-width:720px){
- .navbar{min-height:75px}
+ .navbar{
+    min-height:75px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    order:1;
+}
+
+.menu-btn{
+    display:block;
+    margin-right:auto;
+    order:2;
+}
  .logo img{width:53px;height:53px}
  .logo-name{font-size:20px}
  .menu-btn{display:block}
